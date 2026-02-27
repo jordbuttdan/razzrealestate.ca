@@ -48,6 +48,7 @@ body {
   background: none;
   border: none;
   z-index: 200;
+  margin-left: auto;
 }
 .hamburger span {
   display: block;
@@ -643,7 +644,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 /* WHO WE ARE */
 .why-exists {
   background: var(--white);
-  padding: 120px 40px;
+  padding: 220px 40px 120px;
   position: relative; overflow: hidden;
 }
 .why-exists::before {
@@ -923,7 +924,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .cta-btns .btn-white { background: var(--amber); color: white; }
 .cta-btns .btn-white:hover { background: var(--amber-dark); color: white; }
-.btn-white { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--amber); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
+.btn-white { display: inline-flex; align-items: center; justify-content: center; text-align: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--amber); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
 .btn-white:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
 
 /* FOOTER */
@@ -1066,7 +1067,16 @@ footer {
 
 /* MOBILE */
 @media(max-width: 900px) {
-  nav { padding: 0 24px; }
+  nav { padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+  .razz-report { padding: 60px 24px; }
+  .footer-socials { justify-content: center; }
+  .footer-brand-col { align-items: center; text-align: center; }
+  .footer-socials-row { justify-content: center; flex-direction: column; align-items: center; gap: 20px; }
+  .razz-report-form { flex-direction: column; border-radius: 6px; }
+  .razz-report-input { border-radius: 6px 6px 0 0; padding: 14px 16px; width: 100%; }
+  .razz-report-btn { border-radius: 0 0 6px 6px; padding: 14px 16px; width: 100%; text-align: center; }
+  .razz-report-inner { flex-direction: column; gap: 32px; }
+  .razz-report-left, .razz-report-right { width: 100% !important; min-width: unset !important; }
   .nav-links { display: none; }
   .nav-right { display: none; }
   .hamburger { display: flex; }
@@ -1168,7 +1178,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
 
 <!-- WHO WE ARE -->
 <section class="why-exists" id="why">
-  <div class="why-exists-inner-single">
+  <div class="why-exists-inner-single" style="padding-top: 60px;">
     <div class="section-label">Who We Are</div>
     <h2 class="section-title" style="color:var(--black);">Service Was Never<br>a Strategy.<br>It Was Just Home.</h2>
     <div class="who-we-are-body">

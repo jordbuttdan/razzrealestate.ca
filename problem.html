@@ -48,6 +48,7 @@ body {
   background: none;
   border: none;
   z-index: 200;
+  margin-left: auto;
 }
 .hamburger span {
   display: block;
@@ -334,7 +335,8 @@ nav.scrolled .hamburger span { background: var(--black); }
     z-index: 500;
   }
   .imessage-popup::before { display: none; }
-  .imessage-popup.mobile-open { display: block; }
+  .imessage-popup.mobile-open { display: block; pointer-events: all; }
+  .imessage-popup.mobile-open .popup-close { display: block; }
 
   /* Dim overlay when popup open */
   .mobile-overlay {
@@ -506,7 +508,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 /* THE PROBLEM */
 .problem {
   background: var(--black);
-  padding: 120px 40px;
+  padding: 220px 40px 120px;
   position: relative; overflow: hidden;
 }
 .problem::before {
@@ -923,7 +925,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .cta-btns .btn-white { background: var(--amber); color: white; }
 .cta-btns .btn-white:hover { background: var(--amber-dark); color: white; }
-.btn-white { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--amber); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
+.btn-white { display: inline-flex; align-items: center; justify-content: center; text-align: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--amber); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
 .btn-white:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
 
 /* FOOTER */
@@ -1066,7 +1068,16 @@ footer {
 
 /* MOBILE */
 @media(max-width: 900px) {
-  nav { padding: 0 24px; }
+  nav { padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+  .razz-report { padding: 60px 24px; }
+  .footer-socials { justify-content: center; }
+  .footer-brand-col { align-items: center; text-align: center; }
+  .footer-socials-row { justify-content: center; flex-direction: column; align-items: center; gap: 20px; }
+  .razz-report-form { flex-direction: column; border-radius: 6px; }
+  .razz-report-input { border-radius: 6px 6px 0 0; padding: 14px 16px; width: 100%; }
+  .razz-report-btn { border-radius: 0 0 6px 6px; padding: 14px 16px; width: 100%; text-align: center; }
+  .razz-report-inner { flex-direction: column; gap: 32px; }
+  .razz-report-left, .razz-report-right { width: 100% !important; min-width: unset !important; }
   .nav-links { display: none; }
   .nav-right { display: none; }
   .hamburger { display: flex; }
@@ -1096,6 +1107,17 @@ footer {
 .problem-list { list-style: none; padding: 0; margin: 0 0 24px 0; }
 .problem-list li { font-size: 1rem; line-height: 1.85; color: rgba(250,250,248,0.65); font-weight: 300; padding-left: 20px; position: relative; margin-bottom: 4px; }
 .problem-list li::before { content: "·"; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+
+.popup-close {
+  display: none;
+  position: absolute;
+  top: 10px; right: 12px;
+  background: none; border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 1rem; cursor: pointer;
+  line-height: 1; padding: 4px;
+  z-index: 10;
+}
 </style>
 </head>
 <body>
@@ -1153,7 +1175,7 @@ footer {
 
 <!-- THE PROBLEM -->
 <section class="problem" id="problem">
-  <div class="problem-inner">
+  <div class="problem-inner" style="padding-top: 60px;">
     <div class="section-label">The Problem</div>
     <h2 class="section-title">The Industry Is<br>Built for Itself.<br>Not for You.</h2>
     <div class="problem-grid">
@@ -1172,7 +1194,7 @@ footer {
       </div>
       <div class="indictments">
         <div class="indictment">
-          <div class="imessage-popup">
+          <div class="imessage-popup"><button class="popup-close" aria-label="Close">✕</button>
   <div class="imessage-header">
     <div class="contact-name">Agent</div>
     <div class="contact-label">iMessage</div>
@@ -1189,7 +1211,7 @@ footer {
           <div class="indictment-body">When income is tied to closing speed, the incentive to slow down and genuinely explain options disappears. That's not a personal flaw — it's structural. And the client absorbs the cost either way.</div>
         </div>
         <div class="indictment">
-          <div class="imessage-popup">
+          <div class="imessage-popup"><button class="popup-close" aria-label="Close">✕</button>
   <div class="imessage-header">
     <div class="contact-name">Agent</div>
     <div class="contact-label">iMessage</div>
@@ -1206,7 +1228,7 @@ footer {
           <div class="indictment-body">Real estate is dense — clauses, conditions, assignment rules, financing terms. Clients aren't always walked through it properly. When complexity goes untranslated, people make high-stakes decisions they don't fully understand.</div>
         </div>
         <div class="indictment">
-          <div class="imessage-popup">
+          <div class="imessage-popup"><button class="popup-close" aria-label="Close">✕</button>
   <div class="imessage-header">
     <div class="contact-name">Sam (Agent)</div>
     <div class="contact-label">Text Message</div>
@@ -1225,7 +1247,7 @@ footer {
           <div class="indictment-body">The GTA moves fast. The habits, tools, and thinking many agents rely on? Built for a different era. In a market that changes by the week, outdated practice isn't just inefficient — it's a disservice.</div>
         </div>
         <div class="indictment">
-          <div class="imessage-popup">
+          <div class="imessage-popup"><button class="popup-close" aria-label="Close">✕</button>
   <div class="imessage-header">
     <div class="contact-name">Agent</div>
     <div class="contact-label">iMessage</div>
@@ -1374,5 +1396,30 @@ footer {
 </script>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/
+
+<script>
+(function(){
+  // Mobile popup tap-to-open for indictment cards
+  document.querySelectorAll('.indictment').forEach(function(card){
+    card.addEventListener('click', function(e){
+      if(e.target.classList.contains('popup-close')) return;
+      var popup = card.querySelector('.imessage-popup');
+      if(!popup) return;
+      // Close any other open popups
+      document.querySelectorAll('.imessage-popup.mobile-open').forEach(function(p){
+        p.classList.remove('mobile-open');
+      });
+      popup.classList.toggle('mobile-open');
+    });
+  });
+  // Close button
+  document.querySelectorAll('.popup-close').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      btn.closest('.imessage-popup').classList.remove('mobile-open');
+    });
+  });
+})();
+</script>
 </body>
 </html>

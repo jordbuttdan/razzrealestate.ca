@@ -48,6 +48,7 @@ body {
   background: none;
   border: none;
   z-index: 200;
+  margin-left: auto;
 }
 .hamburger span {
   display: block;
@@ -828,7 +829,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 
 .who {
   background: var(--white);
-  padding: 120px 40px;
+  padding: 220px 40px 120px;
   position: relative; overflow: hidden;
 }
 .who::before {
@@ -864,52 +865,14 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 
 /* WHO CARD LINK POPUPS */
 .who-card { position: relative; }
-.who-link-popup {
-  display: none;
-  position: absolute;
-  bottom: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 260px;
-  border-radius: 12px;
-  padding: 16px 18px;
-  z-index: 200;
-  pointer-events: none;
-}
-.who-link-popup::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0; right: 0;
-  height: 14px;
-  background: transparent;
-}
-.who-card:hover .who-link-popup { display: block; pointer-events: auto; }
-.rental-popup { background: #0D0D0D; border: 2px solid rgba(255,92,26,0.5); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-.housing-popup { background: #0D0D0D; border: 2px solid rgba(48,76,116,0.7); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-.who-link-popup-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
-.rental-popup .who-link-popup-site { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1.5px; color: var(--orange); margin-bottom: 8px; }
-.housing-popup .who-link-popup-site { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1.5px; color: #7aadcc; margin-bottom: 8px; }
-.who-link-popup-desc { font-size: 0.78rem; line-height: 1.5; color: rgba(255,255,255,0.45); margin-bottom: 12px; }
-.who-link-popup-btn { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; padding: 7px 14px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
-.rental-popup .who-link-popup-btn { background: var(--orange); color: white; }
-.housing-popup .who-link-popup-btn { background: #304C74; color: white; }
-.who-link-popup-btn:hover { opacity: 0.85; }
-.who-link-popup-arrow { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; }
-.commercial-popup { background: #0D0D0D; border: 2px solid rgba(255,158,0,0.55); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-.commercial-popup .who-link-popup-site { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1.5px; color: var(--amber); margin-bottom: 8px; }
-.commercial-popup .who-link-popup-btn { background: var(--amber); color: white; }
-.commercial-popup .who-link-popup-arrow { border-top-color: rgba(255,158,0,0.55); }
 
-/* CTA */
-.cta-section {
-  min-height: 90vh;
-  background: var(--black);
-  display: flex; align-items: center; justify-content: center;
-  padding: 100px 40px; text-align: center;
-  position: relative; overflow: hidden;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
+
+.who-card:hover 
+
+
+
+
+
 .cta-section::before {
   content: 'RAZZ';
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -923,7 +886,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .cta-btns .btn-white { background: var(--amber); color: white; }
 .cta-btns .btn-white:hover { background: var(--amber-dark); color: white; }
-.btn-white { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--amber); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
+.btn-white { display: inline-flex; align-items: center; justify-content: center; text-align: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--amber); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
 .btn-white:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
 
 /* FOOTER */
@@ -1066,7 +1029,16 @@ footer {
 
 /* MOBILE */
 @media(max-width: 900px) {
-  nav { padding: 0 24px; }
+  nav { padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+  .razz-report { padding: 60px 24px; }
+  .footer-socials { justify-content: center; }
+  .footer-brand-col { align-items: center; text-align: center; }
+  .footer-socials-row { justify-content: center; flex-direction: column; align-items: center; gap: 20px; }
+  .razz-report-form { flex-direction: column; border-radius: 6px; }
+  .razz-report-input { border-radius: 6px 6px 0 0; padding: 14px 16px; width: 100%; }
+  .razz-report-btn { border-radius: 0 0 6px 6px; padding: 14px 16px; width: 100%; text-align: center; }
+  .razz-report-inner { flex-direction: column; gap: 32px; }
+  .razz-report-left, .razz-report-right { width: 100% !important; min-width: unset !important; }
   .nav-links { display: none; }
   .nav-right { display: none; }
   .hamburger { display: flex; }
@@ -1105,6 +1077,18 @@ nav.nav-light-page .nav-links a:hover { color: var(--black); }
 nav.nav-light-page .nav-links a.active { color: var(--amber); }
 nav.nav-light-page .hamburger span { background: var(--black); }
 
+
+.who-card-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.who-card-link:hover { color: var(--black); }
 </style>
 </head>
 <body>
@@ -1162,7 +1146,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
 
 <!-- WHO ITS FOR -->
 <section class="who" id="who">
-  <div class="who-inner">
+  <div class="who-inner" style="padding-top: 60px;">
     <div class="section-label">Who We're For</div>
     <h2 class="section-title">This Isn't for Everyone.<br>That's the Point.</h2>
     <p class="who-intro">We don't sell FOMO. We don't push pre-construction. We're not here to wine and dine.</p>
@@ -1174,90 +1158,49 @@ nav.nav-light-page .hamburger span { background: var(--black); }
     <p class="who-intro">Our systems let us move quickly. Our judgment tells us when it's time to slow down.</p>
     <p class="who-intro who-intro-transition">If this approach feels right to you, here's who we work with.</p>
     <div class="who-grid who-grid-3">
+
       <div class="who-card">
-        <div class="who-link-popup rental-popup">
-          <div class="who-link-popup-inner">
-            <div class="who-link-popup-label">Free Resource</div>
-            <div class="who-link-popup-site">TheRentalMarket.ca</div>
-            <div class="who-link-popup-desc">Practical guides for tenants navigating the GTA rental market.</div>
-            <a href="https://therentalmarket.ca" target="_blank" class="who-link-popup-btn">Visit Site →</a>
-          </div>
-          <div class="who-link-popup-arrow"></div>
-        </div>
         <span class="who-card-icon">🏠</span>
         <div class="who-card-title">Tenants</div>
         <div class="who-card-body">In a lot of cases, renting makes more sense than buying. It also comes with just as much paperwork, just as many obligations, and just as many ways to get caught off guard. Know what you're signing and have someone in your corner every step of the way.</div>
+        <a href="https://therentalmarket.ca" target="_blank" rel="noopener" class="who-card-link">Free Resource · TheRentalMarket.ca →</a>
       </div>
+
       <div class="who-card">
-        <div class="who-link-popup rental-popup">
-          <div class="who-link-popup-inner">
-            <div class="who-link-popup-label">Free Resource</div>
-            <div class="who-link-popup-site">TheRentalMarket.ca</div>
-            <div class="who-link-popup-desc">Everything landlords need to navigate lease obligations, tenant screening, and the GTA rental market.</div>
-            <a href="https://therentalmarket.ca" target="_blank" class="who-link-popup-btn">Visit Site →</a>
-          </div>
-          <div class="who-link-popup-arrow"></div>
-        </div>
         <span class="who-card-icon">🔑</span>
         <div class="who-card-title">Landlords</div>
-        <div class="who-card-body">Tenant screening, lease obligations, rent increase rules, maintenance responsibilities — there's a lot that can go sideways. Let's make sure you're walking in with a clear picture of what you're responsible for and what to expect.</div>
+        <div class="who-card-body">Everything landlords need to navigate lease obligations, tenant screening, and the GTA rental market.</div>
+        <a href="https://therentalmarket.ca" target="_blank" rel="noopener" class="who-card-link">Free Resource · TheRentalMarket.ca →</a>
       </div>
+
       <div class="who-card">
-        <div class="who-link-popup housing-popup">
-          <div class="who-link-popup-inner">
-            <div class="who-link-popup-label">Free Resource</div>
-            <div class="who-link-popup-site">TheHousingMarket.ca</div>
-            <div class="who-link-popup-desc">Straight talk on the GTA resale market — pricing reality, what to expect, and practical guides for buyers.</div>
-            <a href="https://thehousingmarket.ca" target="_blank" class="who-link-popup-btn">Visit Site →</a>
-          </div>
-          <div class="who-link-popup-arrow"></div>
-        </div>
         <span class="who-card-icon">🏡</span>
         <div class="who-card-title">Buyers</div>
         <div class="who-card-body">First home, move-up, or right-sizing after a life change — buying property is a major decision. We help you understand what you're committing to, build a strategy around your goals and timeline, and stay patient until we find the right one.</div>
+        <a href="https://thehousingmarket.ca" target="_blank" rel="noopener" class="who-card-link">Free Resource · TheHousingMarket.ca →</a>
       </div>
+
       <div class="who-card">
-        <div class="who-link-popup housing-popup">
-          <div class="who-link-popup-inner">
-            <div class="who-link-popup-label">Free Resource</div>
-            <div class="who-link-popup-site">TheHousingMarket.ca</div>
-            <div class="who-link-popup-desc">Pricing strategy, market context, and what to expect when selling in the GTA.</div>
-            <a href="https://thehousingmarket.ca" target="_blank" class="who-link-popup-btn">Visit Site →</a>
-          </div>
-          <div class="who-link-popup-arrow"></div>
-        </div>
         <span class="who-card-icon">🏢</span>
         <div class="who-card-title">Sellers</div>
         <div class="who-card-body">A realistic, data-backed valuation and a marketing plan built around what actually makes sense for your property — not a generic playbook. No inflated promises to win your listing. Just an honest read of the market and a strategy designed to get you there.</div>
+        <a href="https://thehousingmarket.ca" target="_blank" rel="noopener" class="who-card-link">Free Resource · TheHousingMarket.ca →</a>
       </div>
+
       <div class="who-card">
-        <div class="who-link-popup commercial-popup">
-          <div class="who-link-popup-inner">
-            <div class="who-link-popup-label">Coming Soon</div>
-            <div class="who-link-popup-site">TheCommercialMarket.ca</div>
-            <div class="who-link-popup-desc">Commercial real estate intelligence for business owners navigating the GTA market.</div>
-            <a href="https://thecommercialmarket.ca" target="_blank" class="who-link-popup-btn">Visit Site →</a>
-          </div>
-          <div class="who-link-popup-arrow"></div>
-        </div>
         <span class="who-card-icon">🏗️</span>
         <div class="who-card-title">Business Owners</div>
         <div class="who-card-body">Whether you're leasing your first commercial space, relocating, or evaluating ownership vs. renting — you need someone who understands the numbers and the nuance, not just the square footage.</div>
+        <a href="https://thecommercialmarket.ca" target="_blank" rel="noopener" class="who-card-link">Coming Soon · TheCommercialMarket.ca →</a>
       </div>
+
       <div class="who-card">
-        <div class="who-link-popup commercial-popup">
-          <div class="who-link-popup-inner">
-            <div class="who-link-popup-label">Coming Soon</div>
-            <div class="who-link-popup-site">TheCommercialMarket.ca</div>
-            <div class="who-link-popup-desc">Market research, deal analysis, and straight talk for investors building in the GTA.</div>
-            <a href="https://thecommercialmarket.ca" target="_blank" class="who-link-popup-btn">Visit Site →</a>
-          </div>
-          <div class="who-link-popup-arrow"></div>
-        </div>
         <span class="who-card-icon">📈</span>
         <div class="who-card-title">Investors</div>
         <div class="who-card-body">You're making a financial decision with a decade-plus horizon. You need research, realism, and someone who'll tell you when the numbers don't work — not just validate the ones that do.</div>
+        <a href="https://thecommercialmarket.ca" target="_blank" rel="noopener" class="who-card-link">Coming Soon · TheCommercialMarket.ca →</a>
       </div>
+
     </div>
   </div>
 </section>

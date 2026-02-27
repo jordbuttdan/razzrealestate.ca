@@ -48,6 +48,7 @@ body {
   background: none;
   border: none;
   z-index: 200;
+  margin-left: auto;
 }
 .hamburger span {
   display: block;
@@ -918,7 +919,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .cta-btns .btn-white { background: var(--amber); color: white; }
 .cta-btns .btn-white:hover { background: var(--amber-dark); color: white; }
-.btn-white { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--amber); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
+.btn-white { display: inline-flex; align-items: center; justify-content: center; text-align: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--amber); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
 .btn-white:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
 
 /* FOOTER */
@@ -1061,7 +1062,16 @@ footer {
 
 /* MOBILE */
 @media(max-width: 900px) {
-  nav { padding: 0 24px; }
+  nav { padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+  .razz-report { padding: 60px 24px; }
+  .footer-socials { justify-content: center; }
+  .footer-brand-col { align-items: center; text-align: center; }
+  .footer-socials-row { justify-content: center; flex-direction: column; align-items: center; gap: 20px; }
+  .razz-report-form { flex-direction: column; border-radius: 6px; }
+  .razz-report-input { border-radius: 6px 6px 0 0; padding: 14px 16px; width: 100%; }
+  .razz-report-btn { border-radius: 0 0 6px 6px; padding: 14px 16px; width: 100%; text-align: center; }
+  .razz-report-inner { flex-direction: column; gap: 32px; }
+  .razz-report-left, .razz-report-right { width: 100% !important; min-width: unset !important; }
   .nav-links { display: none; }
   .nav-right { display: none; }
   .hamburger { display: flex; }
@@ -1128,7 +1138,7 @@ footer {
   color: var(--white);
 }
 .btn-razz-amber {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: flex; justify-content: center; align-items: center; text-align: center; align-items: center; gap: 8px;
   padding: 15px 32px;
   background: var(--amber); color: white;
   border: 2px solid var(--amber);
@@ -1253,7 +1263,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
 </nav>
 
 <!-- RAZZ REPORT HERO -->
-<section style="background:var(--black);padding:140px 40px 100px;position:relative;overflow:hidden;">
+<section style="background:var(--black);padding:220px 40px 100px;position:relative;overflow:hidden;">
   <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:30vw;letter-spacing:-4px;color:rgba(255,255,255,0.03);pointer-events:none;white-space:nowrap;line-height:1;">RAZZ</div>
   <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
 
