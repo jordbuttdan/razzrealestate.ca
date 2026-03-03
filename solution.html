@@ -404,11 +404,15 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .nav-cta {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 22px;
-  background: var(--amber); color: white; border-radius: 6px;
+  background: var(--blue); color: white; border-radius: 6px;
   font-family: 'Nunito', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px;
   text-decoration: none; transition: background 0.25s, transform 0.25s;
 }
-.nav-cta:hover { background: var(--amber-dark); transform: translateY(-1px); }
+.nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.nav-cta .cta-arrow { display: inline-block; transition: transform 0.25s ease; }
+.nav-cta:hover .cta-arrow { transform: translateX(3px); }
+nav.scrolled .nav-cta { background: var(--blue-dark); }
+nav.scrolled .nav-cta:hover { background: var(--teal); }
 
 /* HERO */
 .hero {
@@ -470,7 +474,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .hero-cta {
   display: inline-flex; align-items: center; gap: 10px;
   margin-top: 40px; padding: 15px 32px;
-  background: var(--amber); color: white; border-radius: 6px;
+  background: var(--blue); color: white; border-radius: 6px;
   font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.5px;
   text-decoration: none; transition: all 0.3s;
   animation: fadeUp 0.9s 0.66s ease both;
@@ -559,6 +563,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .principle {
   background: var(--white); padding: 36px 30px;
   position: relative; transition: all 0.3s; border: 1px solid transparent;
+  display: flex; flex-direction: column;
 }
 .principle::after {
   content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
@@ -567,10 +572,23 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 }
 .principle:hover { border-color: rgba(255,92,26,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
 .principle:hover::after { transform: scaleX(1); }
-.principle-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; letter-spacing: 2px; color: var(--amber); line-height: 1; margin-bottom: 14px; font-weight: 700; }
-.principle-icon { font-size: 1.5rem; margin-bottom: 12px; display: block; }
+.principle-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; letter-spacing: 2px; color: var(--blue); line-height: 1; margin-bottom: 0; font-weight: 700; }
+.principle-icon { display: flex; align-items: center; }
+.principle-icon svg { width: 48px; height: 48px; }
 .principle-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1.5px; color: var(--black); margin-bottom: 10px; }
 .principle-body { font-size: 0.9rem; line-height: 1.7; color: var(--grey); font-weight: 300; }
+.principle-num-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.principle.fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.principle.fade-up:nth-child(2) { transition-delay: 0.12s; }
+.principle.fade-up:nth-child(3) { transition-delay: 0.24s; }
+.principle.fade-up:nth-child(4) { transition-delay: 0.36s; }
+.principle.fade-up:nth-child(5) { transition-delay: 0.48s; }
+.principle.fade-up:nth-child(6) { transition-delay: 0.6s; }
+.principle.fade-up.visible { opacity: 1; transform: translateY(0); }
+.principle-testimonial { margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(0,0,0,0.08); }
+.principle-testimonial-stars { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.82rem; color: var(--amber); }
+.principle-testimonial-text { font-size: 0.82rem; line-height: 1.6; color: var(--grey); font-style: italic; font-weight: 300; margin-bottom: 8px; }
+.principle-testimonial-author { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); }
 
 /* GOOGLE REVIEW POPUPS */
 .review-popup {
@@ -922,8 +940,8 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .cta-inner h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 8vw, 8rem); letter-spacing: 3px; color: var(--white); line-height: 0.92; margin-bottom: 24px; }
 .cta-inner p { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.45); font-weight: 300; margin-top: 32px; margin-bottom: 0; max-width: 480px; margin-left: auto; margin-right: auto; }
 .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.cta-btns .btn-white { background: var(--amber); color: white; }
-.cta-btns .btn-white:hover { background: var(--amber-dark); color: white; }
+.cta-btns .btn-white { background: var(--blue); color: white; }
+.cta-btns .btn-white:hover { background: var(--blue-dark); color: white; }
 .btn-white { display: inline-flex; align-items: center; justify-content: center; text-align: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--amber); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
 .btn-white:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
 
@@ -938,7 +956,7 @@ footer {
 /* Footer top: logo + tagline left, nav centre, sites right */
 .footer-top {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
   gap: 48px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255,255,255,0.07);
@@ -1022,6 +1040,10 @@ footer {
   letter-spacing: 1.5px;
   color: var(--white);
 }
+.footer-site-link.housing .footer-site-name { color: var(--blue); }
+.footer-site-link.rental .footer-site-name { color: var(--orange); }
+.footer-site-link.commercial .footer-site-name { color: var(--amber); }
+
 
 /* Socials row */
 .footer-socials-row {
@@ -1069,28 +1091,8 @@ footer {
 @media(max-width: 900px) {
   nav { padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
   .razz-report { padding: 60px 24px; }
-  .principle { cursor: pointer; }
-  .principle::after { display: block; }
-  .review-popup { pointer-events: none; }
-  .review-popup.mobile-open {
-    display: block !important;
-    pointer-events: all;
-    position: fixed;
-    top: 50% !important; left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    bottom: auto !important;
-    width: min(90vw, 340px);
-    z-index: 600;
-  }
-  .review-popup.mobile-open .review-popup-close { display: block; }
-  .review-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 590;
-  }
-  .review-overlay.active { display: block; }
+
+
   .footer-socials { justify-content: center; }
   .footer-brand-col { align-items: center; text-align: center; }
   .footer-socials-row { justify-content: center; flex-direction: column; align-items: center; gap: 20px; }
@@ -1148,18 +1150,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
   line-height: 1; padding: 4px;
   z-index: 10;
 }
-.principle { cursor: pointer; }
-.principle::after {
-  content: 'Tap to see a review';
-  display: block;
-  margin-top: 12px;
-  font-size: 0.62rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--blue);
-  font-weight: 600;
-  display: none;
-}
+
 </style>
 </head>
 <body>
@@ -1212,7 +1203,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
     <li><a href="who-we-are.html">Who We Are</a></li>
     <li><a href="who-its-for.html">Who We're For</a></li>
   </ul>
-  <div class="nav-right"><a href="contact.html" class="nav-cta">Get in Touch →</a></div>
+  <div class="nav-right"><a href="contact.html" class="nav-cta">Get in Touch <span class="cta-arrow">→</span></a></div>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -1224,121 +1215,98 @@ nav.nav-light-page .hamburger span { background: var(--black); }
     <p class="operates-intro">Most people don't need another salesperson. They need an advisor accountable to their outcomes — not the industry's incentives. The model here is people-first, technology-driven, and built for the long haul.</p>
     </div>
     <div class="principles">
-      <div class="principle">
-        <div class="review-popup"><button class="review-popup-close" aria-label="Close">✕</button>
-          <div class="review-header">
-            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-            <div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-label">Google Review</div>
-            </div>
-          </div>
-          <div class="review-text">"Jordan is an amazing realtor, but most of all...just an all-around good guy. He has a calm, reassuring presence about him, which is crucial in such a stressful life changing process. He is the guy who always knew what to say/do to deal with my negative thoughts and anxiety about the whole buying and selling process."</div>
-          <div class="review-author">— Natalie Gordon</div>
-          <div class="review-popup-arrow"></div>
+      <div class="principle fade-up">
+        <div class="principle-num-row">
+          <div class="principle-num">01</div>
+          <span class="principle-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="38" width="24" height="4" rx="1" stroke="var(--blue)" stroke-width="2" fill="rgba(113,169,188,0.12)"/><rect x="14" y="34" width="20" height="4" rx="1" stroke="var(--blue)" stroke-width="2" fill="rgba(113,169,188,0.12)"/><path d="M14 34c0-4 2-8 3-10l-3-4c-.5-.7 0-1.7.8-1.7h4l2-5c.3-.7 1-1.3 1.7-1.3h1c4 0 8 2 10 5 2.5 3.5 3 7 2.5 11v6" stroke="var(--blue)" stroke-width="2" fill="rgba(113,169,188,0.12)"/><circle cx="23" cy="20" r="1.5" fill="var(--blue)"/></svg></span>
         </div>
-        <div class="principle-num">01</div>
-        <span class="principle-icon">🤝</span>
         <div class="principle-title">Client Outcomes First</div>
         <div class="principle-body">The only win is you ending up in a position that actually serves you. Not the fastest deal. Not the easiest close. If the right move is to wait, renegotiate, or walk away, that's the move we take.</div>
-      </div>
-      <div class="principle">
-        <div class="review-popup"><button class="review-popup-close" aria-label="Close">✕</button>
-          <div class="review-header">
-            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-            <div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-label">Google Review</div>
-            </div>
-          </div>
-          <div class="review-text">"He has always been patient with us and never pushed us to make a decision we weren't comfortable with."</div>
-          <div class="review-author">— Sabrina Sundermeier</div>
-          <div class="review-popup-arrow"></div>
+        <div class="principle-testimonial">
+          <div class="principle-testimonial-stars" style="display:flex;align-items:center;gap:8px;"><svg viewBox="0 0 24 24" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> ★★★★★</div>
+          <div class="principle-testimonial-text">"Jordan is an amazing realtor, but most of all...just an all-around good guy. He has a calm, reassuring presence about him, which is crucial in such a stressful life changing process. He is the guy who always knew what to say/do to deal with my negative thoughts and anxiety about the whole buying and selling process."</div>
+          <div class="principle-testimonial-author">— Natalie Gordon</div>
         </div>
-        <div class="principle-num">02</div>
-        <span class="principle-icon">🚫</span>
+      </div>
+      <div class="principle fade-up">
+        <div class="principle-num-row">
+          <div class="principle-num">02</div>
+          <span class="principle-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="24" r="15" fill="rgba(113,169,188,0.12)" stroke="var(--blue)" stroke-width="2"/><path d="M22 14v10l6 3.5" stroke="var(--blue)" stroke-width="2"/><path d="M18 7h8" stroke="var(--blue)" stroke-width="2"/><circle cx="38" cy="38" r="9" fill="var(--white)" stroke="var(--blue)" stroke-width="2"/><rect x="34.5" y="33" width="3" height="10" rx="1" fill="var(--blue)"/><rect x="39.5" y="33" width="3" height="10" rx="1" fill="var(--blue)"/></svg></span>
+        </div>
         <div class="principle-title">Pressure-Free Process</div>
         <div class="principle-body">No phantom deadlines. No manufactured competition. Decisions are made when the information is clear and the timing is right — not when someone else wants to speed the process along.</div>
-      </div>
-      <div class="principle">
-        <div class="review-popup"><button class="review-popup-close" aria-label="Close">✕</button>
-          <div class="review-header">
-            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-            <div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-label">Google Review</div>
-            </div>
-          </div>
-          <div class="review-text">"What truly stood out was his patience and willingness to answer all of our questions, no matter how small. He was always quick to respond and kept us informed every step of the way."</div>
-          <div class="review-author">— Melissa Seow</div>
-          <div class="review-popup-arrow"></div>
+        <div class="principle-testimonial">
+          <div class="principle-testimonial-stars" style="display:flex;align-items:center;gap:8px;"><svg viewBox="0 0 24 24" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> ★★★★★</div>
+          <div class="principle-testimonial-text">"He has always been patient with us and never pushed us to make a decision we weren't comfortable with."</div>
+          <div class="principle-testimonial-author">— Sabrina Sundermeier</div>
         </div>
-        <div class="principle-num">03</div>
-        <span class="principle-icon">🧭</span>
+      </div>
+      <div class="principle fade-up">
+        <div class="principle-num-row">
+          <div class="principle-num">03</div>
+          <span class="principle-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3c-7.2 0-13 5.8-13 13 0 4.5 2.3 8.5 5.8 10.8.5.3.8.9.8 1.5V32c0 1.1.9 2 2 2h8.8c1.1 0 2-.9 2-2v-3.7c0-.6.3-1.2.8-1.5C31.7 24.5 34 20.5 34 16c0-7.2-5.8-13-13-13z" fill="rgba(113,169,188,0.12)" stroke="var(--blue)" stroke-width="1.8"/><path d="M16.5 34h9M17.5 37h7" stroke="var(--blue)" stroke-width="1.8"/><line x1="21" y1="13" x2="21" y2="22" stroke="var(--blue)" stroke-width="1.8"/><line x1="17" y1="20" x2="21" y2="22" stroke="var(--blue)" stroke-width="1.5"/><line x1="25" y1="20" x2="21" y2="22" stroke="var(--blue)" stroke-width="1.5"/><line x1="21" y1="0" x2="21" y2="3" stroke="var(--blue)" stroke-width="1.5"/><line x1="36" y1="16" x2="39" y2="16" stroke="var(--blue)" stroke-width="1.5"/><line x1="3" y1="16" x2="6" y2="16" stroke="var(--blue)" stroke-width="1.5"/><line x1="32.5" y1="5.5" x2="34.5" y2="3.5" stroke="var(--blue)" stroke-width="1.5"/><line x1="9.5" y1="5.5" x2="7.5" y2="3.5" stroke="var(--blue)" stroke-width="1.5"/></svg></span>
+        </div>
         <div class="principle-title">Clarity Before Commitment</div>
         <div class="principle-body">No decision moves forward until you fully understand what you're committing to. Every clause, risk, and tradeoff is translated into clear, practical language. If it can't be explained simply, it's not ready to be acted on.</div>
-      </div>
-      <div class="principle">
-        <div class="review-popup"><button class="review-popup-close" aria-label="Close">✕</button>
-          <div class="review-header">
-            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-            <div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-label">Google Review</div>
-            </div>
-          </div>
-          <div class="review-text">"Jordan was fantastic. He invested time whereby he learned about our goals. Expect an honest appraisal and transparency. He had our best interests at heart. I will forever be thankful for his honesty and deep knowledge of the market."</div>
-          <div class="review-author">— Karen Rousseau</div>
-          <div class="review-popup-arrow"></div>
+        <div class="principle-testimonial">
+          <div class="principle-testimonial-stars" style="display:flex;align-items:center;gap:8px;"><svg viewBox="0 0 24 24" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> ★★★★★</div>
+          <div class="principle-testimonial-text">"What truly stood out was his patience and willingness to answer all of our questions, no matter how small. He was always quick to respond and kept us informed every step of the way."</div>
+          <div class="principle-testimonial-author">— Melissa Seow</div>
         </div>
-        <div class="principle-num">04</div>
-        <span class="principle-icon">🔬</span>
+      </div>
+      <div class="principle fade-up">
+        <div class="principle-num-row">
+          <div class="principle-num">04</div>
+          <span class="principle-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="18" r="8" fill="rgba(113,169,188,0.12)" stroke="var(--blue)" stroke-width="2"/><path d="M24 26v8" stroke="var(--blue)" stroke-width="2"/><path d="M16 42h16" stroke="var(--blue)" stroke-width="2"/><path d="M20 42v-8h8v8" stroke="var(--blue)" stroke-width="2"/><path d="M24 10v-4" stroke="var(--blue)" stroke-width="2"/><circle cx="24" cy="18" r="3" stroke="var(--blue)" stroke-width="1.5"/><path d="M12 38h24" stroke="var(--blue)" stroke-width="1.5" stroke-dasharray="2 3"/></svg></span>
+        </div>
         <div class="principle-title">Research Over Rhetoric</div>
         <div class="principle-body">Advice is grounded in data, comps, pricing context, and scenario planning — and explained as we go. Not narratives. You'll always know the reasoning behind the recommendation.</div>
-      </div>
-      <div class="principle">
-        <div class="review-popup"><button class="review-popup-close" aria-label="Close">✕</button>
-          <div class="review-header">
-            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-            <div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-label">Google Review</div>
-            </div>
-          </div>
-          <div class="review-text">"He went out of his way to make things easy for us. It was a great feeling having him in our corner to help us get the best home for our family. He's a rare combination of down to earth and relaxed, but on top of everything."</div>
-          <div class="review-author">— Alex Klaver</div>
-          <div class="review-popup-arrow"></div>
+        <div class="principle-testimonial">
+          <div class="principle-testimonial-stars" style="display:flex;align-items:center;gap:8px;"><svg viewBox="0 0 24 24" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> ★★★★★</div>
+          <div class="principle-testimonial-text">"Jordan was fantastic. He invested time whereby he learned about our goals. Expect an honest appraisal and transparency. He had our best interests at heart. I will forever be thankful for his honesty and deep knowledge of the market."</div>
+          <div class="principle-testimonial-author">— Karen Rousseau</div>
         </div>
-        <div class="principle-num">05</div>
-        <span class="principle-icon">🏗️</span>
+      </div>
+      <div class="principle fade-up">
+        <div class="principle-num-row">
+          <div class="principle-num">05</div>
+          <span class="principle-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18" stroke="var(--blue)" stroke-width="2" fill="rgba(113,169,188,0.12)"/><circle cx="24" cy="24" r="10" stroke="var(--blue)" stroke-width="1.5"/><circle cx="24" cy="24" r="3" fill="var(--blue)"/><line x1="24" y1="2" x2="24" y2="10" stroke="var(--blue)" stroke-width="1.5"/><line x1="24" y1="38" x2="24" y2="46" stroke="var(--blue)" stroke-width="1.5"/><line x1="2" y1="24" x2="10" y2="24" stroke="var(--blue)" stroke-width="1.5"/><line x1="38" y1="24" x2="46" y2="24" stroke="var(--blue)" stroke-width="1.5"/></svg></span>
+        </div>
         <div class="principle-title">Tailored Strategy</div>
         <div class="principle-body">No two clients, timelines, or risk profiles are the same. Service structure, communication, and strategy are intentionally designed around your goals.</div>
-      </div>
-      <div class="principle">
-        <div class="review-popup"><button class="review-popup-close" aria-label="Close">✕</button>
-          <div class="review-header">
-            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-            <div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-label">Google Review</div>
-            </div>
-          </div>
-          <div class="review-text">"Jordan is a realtor who truly goes above and beyond for his clients. He provided exceptional customer service and implemented effective strategies to attract the right buyers."</div>
-          <div class="review-author">— N. Park</div>
-          <div class="review-popup-arrow"></div>
+        <div class="principle-testimonial">
+          <div class="principle-testimonial-stars" style="display:flex;align-items:center;gap:8px;"><svg viewBox="0 0 24 24" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> ★★★★★</div>
+          <div class="principle-testimonial-text">"He went out of his way to make things easy for us. It was a great feeling having him in our corner to help us get the best home for our family. He's a rare combination of down to earth and relaxed, but on top of everything."</div>
+          <div class="principle-testimonial-author">— Alex Klaver</div>
         </div>
-        <div class="principle-num">06</div>
-        <span class="principle-icon">⚡</span>
+      </div>
+      <div class="principle fade-up">
+        <div class="principle-num-row">
+          <div class="principle-num">06</div>
+          <span class="principle-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M28 4L12 26h10l-4 18L42 22H30z" fill="rgba(113,169,188,0.12)" stroke="var(--blue)" stroke-width="2"/></svg></span>
+        </div>
         <div class="principle-title">Modern Tools, Human Judgment</div>
         <div class="principle-body">Modern research tools and AI-assisted analysis surface better data, faster. But tools don't make decisions — people do. Context, experience, and honest conversation shape the final call.</div>
+        <div class="principle-testimonial">
+          <div class="principle-testimonial-stars" style="display:flex;align-items:center;gap:8px;"><svg viewBox="0 0 24 24" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> ★★★★★</div>
+          <div class="principle-testimonial-text">"Jordan is a realtor who truly goes above and beyond for his clients. He provided exceptional customer service and implemented effective strategies to attract the right buyers."</div>
+          <div class="principle-testimonial-author">— N. Park</div>
+        </div>
       </div>
     </div>
 
-    <div style="width:100%;margin:64px 0 0;padding:40px 44px;border-left:4px solid var(--blue);background:rgba(0,0,0,0.04);border-radius:0 8px 8px 0;">
-      <div style="font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">Mission Statement</div>
-      <p style="font-size:1.15rem;line-height:1.9;color:var(--black);font-weight:400;margin:0;max-width:860px;">To provide honest, detail-oriented real estate service that exceeds expectations by putting relationships over transactions. With a thoughtful, analytical approach and a commitment to education, we guide clients safely and authentically toward lifelong, future-focused decisions — <strong>no pressure, just real value.</strong></p>
     </div>
 
+  </div>
+</section>
+
+<!-- MISSION STATEMENT -->
+<section style="position:relative;background:var(--black);padding:100px 24px;overflow:hidden;text-align:center;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:30vw;letter-spacing:-4px;color:rgba(255,255,255,0.03);pointer-events:none;white-space:nowrap;line-height:1;">RAZZ</div>
+  <div style="position:relative;z-index:1;max-width:900px;margin:0 auto;">
+    <div style="font-size:0.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:24px;">Mission Statement</div>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:2px;color:var(--white);line-height:1.15;margin-bottom:32px;">To provide honest, detail-oriented real estate service that exceeds expectations by putting relationships over transactions.</h2>
+    <p style="font-size:1.05rem;line-height:1.9;color:rgba(255,255,255,0.45);font-weight:300;margin:0 auto;max-width:700px;">With a thoughtful, analytical approach and a commitment to education, we guide clients safely and authentically toward lifelong, future-focused decisions — <strong style="color:var(--blue);">no pressure, just real value.</strong></p>
   </div>
 </section>
 
@@ -1348,7 +1316,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
   <div class="razz-report-inner">
     <div class="razz-report-left">
       <div class="razz-report-eyebrow">The RAZZ Report</div>
-      <h3 class="razz-report-heading">Greater Toronto Area Real Estate — <span style="color:var(--blue);">without the noise.</span></h3>
+      <h3 class="razz-report-heading">Greater Toronto Area Real Estate —<br><span style="color:var(--blue);">Without the Noise.</span></h3>
       <p class="razz-report-sub">RAZZ breaks down trending real estate topics into four pillars:</p>
       <div class="razz-pillars">
         <span class="razz-pillar"><strong>[R]</strong>esearch</span>
@@ -1356,7 +1324,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
         <span class="razz-pillar"><strong>[Z]</strong>oom-In</span>
         <span class="razz-pillar"><strong>[Z]</strong>oom-Out</span>
       </div>
-      <p class="razz-report-close">Understand the market as it is — not as it's sold.<br><strong>Less noise. More signal. One email, every other week.</strong></p>
+      <p class="razz-report-close">Understand the market as it is — not as it's sold.<br><strong>Less noise. More signal.</strong><br><strong>One email, every other week.</strong></p>
     </div>
     <div class="razz-report-right">
       <div class="razz-report-form">
@@ -1364,7 +1332,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
         <button class="razz-report-btn">Subscribe →</button>
       </div>
       <p class="razz-report-disclaimer">No spam. No sales pitch. Unsubscribe anytime.</p>
-      <a href="razz-report.html" style="display:inline-block;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--blue);text-decoration:none;letter-spacing:0.3px;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--blue)'">Learn more about The RAZZ Report →</a>
+      <div style="text-align:center;"><a href="razz-report.html" style="display:inline-block;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--blue);text-decoration:none;letter-spacing:0.3px;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--blue)'">Learn more about The RAZZ Report →</a></div>
     </div>
   </div>
 </section>
@@ -1400,8 +1368,16 @@ nav.nav-light-page .hamburger span { background: var(--black); }
           <a href="solution.html">The Solution</a>
           <a href="who-we-are.html">Who We Are</a>
           <a href="who-its-for.html">Who We're For</a>
+        </div>
+      </div>
+
+      <div class="footer-nav-col">
+        <div class="footer-nav-label">Connect</div>
+        <div class="footer-links">
           <a href="razz-report.html">The RAZZ Report</a>
           <a href="https://cal.com/jordan-buttarazzi" target="_blank" rel="noopener">Book a Call</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
         </div>
       </div>
 
@@ -1471,37 +1447,12 @@ nav.nav-light-page .hamburger span { background: var(--black); }
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/
 
+
 <script>
-(function(){
-  var overlay = document.getElementById('reviewOverlay');
-  function closeAll() {
-    document.querySelectorAll('.review-popup.mobile-open').forEach(function(p){
-      p.classList.remove('mobile-open');
-    });
-    if(overlay) overlay.classList.remove('active');
-  }
-  document.querySelectorAll('.principle').forEach(function(card){
-    card.addEventListener('click', function(e){
-      if(e.target.classList.contains('review-popup-close')) return;
-      var popup = card.querySelector('.review-popup');
-      if(!popup) return;
-      var isOpen = popup.classList.contains('mobile-open');
-      closeAll();
-      if(!isOpen){
-        popup.classList.add('mobile-open');
-        if(overlay) overlay.classList.add('active');
-      }
-    });
-  });
-  document.querySelectorAll('.review-popup-close').forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.stopPropagation();
-      btn.closest('.review-popup').classList.remove('mobile-open');
-      if(overlay) overlay.classList.remove('active');
-    });
-  });
-  if(overlay) overlay.addEventListener('click', closeAll);
-})();
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, {threshold: 0.15});
+document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
 </script>
 </body>
 </html>

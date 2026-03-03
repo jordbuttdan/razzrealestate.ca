@@ -404,11 +404,15 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .nav-cta {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 22px;
-  background: var(--amber); color: white; border-radius: 6px;
+  background: var(--blue); color: white; border-radius: 6px;
   font-family: 'Nunito', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px;
   text-decoration: none; transition: background 0.25s, transform 0.25s;
 }
-.nav-cta:hover { background: var(--amber-dark); transform: translateY(-1px); }
+.nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.nav-cta .cta-arrow { display: inline-block; transition: transform 0.25s ease; }
+.nav-cta:hover .cta-arrow { transform: translateX(3px); }
+nav.scrolled .nav-cta { background: var(--blue-dark); }
+nav.scrolled .nav-cta:hover { background: var(--teal); }
 
 /* HERO */
 .hero {
@@ -470,7 +474,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .hero-cta {
   display: inline-flex; align-items: center; gap: 10px;
   margin-top: 40px; padding: 15px 32px;
-  background: var(--amber); color: white; border-radius: 6px;
+  background: var(--blue); color: white; border-radius: 6px;
   font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.5px;
   text-decoration: none; transition: all 0.3s;
   animation: fadeUp 0.9s 0.66s ease both;
@@ -884,8 +888,8 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
 .cta-inner h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 8vw, 8rem); letter-spacing: 3px; color: var(--white); line-height: 0.92; margin-bottom: 24px; }
 .cta-inner p { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.45); font-weight: 300; margin-top: 32px; margin-bottom: 0; max-width: 480px; margin-left: auto; margin-right: auto; }
 .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.cta-btns .btn-white { background: var(--amber); color: white; }
-.cta-btns .btn-white:hover { background: var(--amber-dark); color: white; }
+.cta-btns .btn-white { background: var(--blue); color: white; }
+.cta-btns .btn-white:hover { background: var(--blue-dark); color: white; }
 .btn-white { display: inline-flex; align-items: center; justify-content: center; text-align: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--amber); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
 .btn-white:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
 
@@ -900,7 +904,7 @@ footer {
 /* Footer top: logo + tagline left, nav centre, sites right */
 .footer-top {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
   gap: 48px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255,255,255,0.07);
@@ -984,6 +988,10 @@ footer {
   letter-spacing: 1.5px;
   color: var(--white);
 }
+.footer-site-link.housing .footer-site-name { color: var(--blue); }
+.footer-site-link.rental .footer-site-name { color: var(--orange); }
+.footer-site-link.commercial .footer-site-name { color: var(--amber); }
+
 
 /* Socials row */
 .footer-socials-row {
@@ -1140,7 +1148,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
     <li><a href="who-we-are.html">Who We Are</a></li>
     <li><a href="who-its-for.html">Who We're For</a></li>
   </ul>
-  <div class="nav-right"><a href="contact.html" class="nav-cta">Get in Touch →</a></div>
+  <div class="nav-right"><a href="contact.html" class="nav-cta">Get in Touch <span class="cta-arrow">→</span></a></div>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -1211,7 +1219,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
   <div class="razz-report-inner">
     <div class="razz-report-left">
       <div class="razz-report-eyebrow">The RAZZ Report</div>
-      <h3 class="razz-report-heading">Greater Toronto Area Real Estate — <span style="color:var(--blue);">without the noise.</span></h3>
+      <h3 class="razz-report-heading">Greater Toronto Area Real Estate —<br><span style="color:var(--blue);">Without the Noise.</span></h3>
       <p class="razz-report-sub">RAZZ breaks down trending real estate topics into four pillars:</p>
       <div class="razz-pillars">
         <span class="razz-pillar"><strong>[R]</strong>esearch</span>
@@ -1219,7 +1227,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
         <span class="razz-pillar"><strong>[Z]</strong>oom-In</span>
         <span class="razz-pillar"><strong>[Z]</strong>oom-Out</span>
       </div>
-      <p class="razz-report-close">Understand the market as it is — not as it's sold.<br><strong>Less noise. More signal. One email, every other week.</strong></p>
+      <p class="razz-report-close">Understand the market as it is — not as it's sold.<br><strong>Less noise. More signal.</strong><br><strong>One email, every other week.</strong></p>
     </div>
     <div class="razz-report-right">
       <div class="razz-report-form">
@@ -1227,7 +1235,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
         <button class="razz-report-btn">Subscribe →</button>
       </div>
       <p class="razz-report-disclaimer">No spam. No sales pitch. Unsubscribe anytime.</p>
-      <a href="razz-report.html" style="display:inline-block;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--blue);text-decoration:none;letter-spacing:0.3px;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--blue)'">Learn more about The RAZZ Report →</a>
+      <div style="text-align:center;"><a href="razz-report.html" style="display:inline-block;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--blue);text-decoration:none;letter-spacing:0.3px;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--blue)'">Learn more about The RAZZ Report →</a></div>
     </div>
   </div>
 </section>
@@ -1263,8 +1271,16 @@ nav.nav-light-page .hamburger span { background: var(--black); }
           <a href="solution.html">The Solution</a>
           <a href="who-we-are.html">Who We Are</a>
           <a href="who-its-for.html">Who We're For</a>
+        </div>
+      </div>
+
+      <div class="footer-nav-col">
+        <div class="footer-nav-label">Connect</div>
+        <div class="footer-links">
           <a href="razz-report.html">The RAZZ Report</a>
           <a href="https://cal.com/jordan-buttarazzi" target="_blank" rel="noopener">Book a Call</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
         </div>
       </div>
 
