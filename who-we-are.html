@@ -4,7 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Who We Are — RAZZ Real Estate Group</title>
+<link rel="canonical" href="https://www.razzrealestate.ca/who-we-are.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Who We Are — RAZZ Real Estate Group">
+<meta property="og:description" content="Meet Jordan Buttarazzi — real estate broker serving the Greater Toronto Area with honest, detail-oriented advisory built for clients, not quotas.">
+<meta property="og:url" content="https://www.razzrealestate.ca/who-we-are.html">
+<meta property="og:site_name" content="RAZZ Real Estate Group">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Who We Are — RAZZ Real Estate Group">
+<meta name="twitter:description" content="Meet Jordan Buttarazzi — real estate broker serving the Greater Toronto Area with honest, detail-oriented advisory built for clients, not quotas.">
 <meta name="description" content="Jordan Buttarazzi and the story behind RAZZ Real Estate Group.">
+<meta property="og:image" content="https://www.razzrealestate.ca/og-image.png">
+<meta name="twitter:image" content="https://www.razzrealestate.ca/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap">
 <style>
@@ -1099,7 +1112,12 @@ footer {
   .razz-report-inner { grid-template-columns: 1fr; gap: 40px; }
     footer { padding: 56px 24px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
-  .footer-socials-row { flex-direction: column; align-items: flex-start; }
+  .footer-nav-col { text-align: center; }
+  .footer-links { align-items: center; }
+  .footer-sites-col { text-align: center; }
+  .footer-socials-row { flex-direction: column; align-items: center; }
+  .footer-socials { justify-content: center; }
+  .footer-bottom { justify-content: center; text-align: center; }
 }
 @media(max-width: 600px) {
   .hero h1 { font-size: clamp(3.5rem, 18vw, 6rem); }
@@ -1141,6 +1159,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
   <a href="solution.html" class="mobile-link">The Solution</a>
   <a href="who-we-are.html" class="mobile-link">Who We Are</a>
   <a href="who-its-for.html" class="mobile-link">Who We're For</a>
+  <a href="razz-report.html" class="mobile-link">The RAZZ Report</a>
   <a href="contact.html" class="mobile-cta">Get in Touch →</a>
 </div>
 <nav id="nav" class="nav-light-page">
@@ -1177,6 +1196,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
   <ul class="nav-links">
     <li><a href="problem.html">The Problem</a></li>
     <li><a href="solution.html">The Solution</a></li>
+    <li><a href="razz-report.html">The Report</a></li>
     <li><a href="who-we-are.html">Who We Are</a></li>
     <li><a href="who-its-for.html">Who We're For</a></li>
   </ul>
@@ -1277,11 +1297,8 @@ nav.nav-light-page .hamburger span { background: var(--black); }
       <p class="razz-report-close">Understand the market as it is — not as it's sold.<br><strong>Less noise. More signal.</strong><br><strong>One email, every other week.</strong></p>
     </div>
     <div class="razz-report-right">
-      <div class="razz-report-form">
-        <input type="email" class="razz-report-input" placeholder="your@email.com" />
-        <button class="razz-report-btn">Subscribe →</button>
-      </div>
-      <p class="razz-report-disclaimer">No spam. No sales pitch. Unsubscribe anytime.</p>
+      <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+      <iframe src="https://subscribe-forms.beehiiv.com/c490c18d-a98e-41fe-b23b-adacd138f35b" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 443px; height: 90px; margin: 0; border-radius: 10px !important; background-color: transparent; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); max-width: 100%;"></iframe>
       <div style="text-align:center;"><a href="razz-report.html" style="display:inline-block;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--blue);text-decoration:none;letter-spacing:0.3px;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--blue)'">Learn more about The RAZZ Report →</a></div>
     </div>
   </div>
@@ -1335,11 +1352,11 @@ nav.nav-light-page .hamburger span { background: var(--black); }
       <div class="footer-sites-col">
         <div class="footer-nav-label">The Ecosystem</div>
         <a href="https://thehousingmarket.ca" class="footer-site-link housing" target="_blank">
-          <div class="footer-site-label">For Buyers &amp; Sellers</div>
+          <div class="footer-site-label">For Buyers &amp; Owners</div>
           <div class="footer-site-name">TheHousingMarket.ca</div>
         </a>
         <a href="https://therentalmarket.ca" class="footer-site-link rental" target="_blank">
-          <div class="footer-site-label">For Tenants &amp; Landlords</div>
+          <div class="footer-site-label">For Tenants</div>
           <div class="footer-site-name">TheRentalMarket.ca</div>
         </a>
         <a href="https://thecommercialmarket.ca" class="footer-site-link commercial" target="_blank">
@@ -1362,7 +1379,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
     </div>
 
     <div class="footer-bottom">
-      <span>© 2025 RAZZ Real Estate Group · Jordan Buttarazzi · Toronto &amp; GTA</span>
+      <span>© 2026 RAZZ Real Estate Group · Jordan Buttarazzi, Real Estate Broker · RECO Lic. 5009855 · REAL Broker Ontario Ltd., Brokerage</span>
       <span>Not legal or financial advice. All real estate decisions should involve qualified professional guidance.</span>
     </div>
   </div>
@@ -1394,6 +1411,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
   }
 })();
 </script>
+
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/
 </body>

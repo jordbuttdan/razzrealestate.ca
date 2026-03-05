@@ -4,7 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Who We're For — RAZZ Real Estate Group</title>
+<link rel="canonical" href="https://www.razzrealestate.ca/who-its-for.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Who We're For — RAZZ Real Estate Group">
+<meta property="og:description" content="Whether you're buying, selling, renting, or investing in the GTA — RAZZ Real Estate Group provides tailored service for every client type.">
+<meta property="og:url" content="https://www.razzrealestate.ca/who-its-for.html">
+<meta property="og:site_name" content="RAZZ Real Estate Group">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Who We're For — RAZZ Real Estate Group">
+<meta name="twitter:description" content="Whether you're buying, selling, renting, or investing in the GTA — RAZZ Real Estate Group provides tailored service for every client type.">
 <meta name="description" content="RAZZ works with buyers, sellers, tenants, landlords, and investors across the GTA.">
+<meta property="og:image" content="https://www.razzrealestate.ca/og-image.png">
+<meta name="twitter:image" content="https://www.razzrealestate.ca/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap">
 <style>
@@ -850,12 +863,16 @@ nav.scrolled .nav-cta:hover { background: var(--teal); }
 .who-list { list-style: none; padding: 0; margin: 0 0 20px 0; max-width: 680px; display: flex; flex-direction: column; gap: 8px; }
 .who-list li { font-size: 1rem; color: var(--grey); font-weight: 300; padding-left: 20px; position: relative; line-height: 1.7; }
 .who-list li::before { content: '—'; position: absolute; left: 0; color: var(--blue); font-weight: 600; }
-.who-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
-.who-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.who-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; }
+.who-grid-3 { grid-template-columns: repeat(6, 1fr); }
+.who-card { grid-column: span 2; }
+.who-card:nth-child(4) { grid-column: 1 / 4; }
+.who-card:nth-child(5) { grid-column: 4 / 7; }
 .who-card {
   background: var(--off); border: 1px solid var(--grey-light);
   padding: 36px 32px; transition: all 0.3s;
   position: relative;
+  display: flex; flex-direction: column;
 }
 .who-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -870,13 +887,14 @@ nav.scrolled .nav-cta:hover { background: var(--teal); }
 /* WHO CARD LINK POPUPS */
 .who-card { position: relative; }
 
-
-.who-card:hover 
-
-
-
-
-
+.cta-section {
+  min-height: 90vh;
+  background: var(--black);
+  display: flex; align-items: center; justify-content: center;
+  padding: 100px 40px; text-align: center;
+  position: relative; overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
 .cta-section::before {
   content: 'RAZZ';
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -1054,6 +1072,7 @@ footer {
   .problem, .operates, .why-exists, .who, .cta-section { padding: 80px 24px; }
   .problem-grid, .why-exists-inner, .tech-inner { grid-template-columns: 1fr; gap: 48px; }
   .principles, .who-grid, .who-grid-3 { grid-template-columns: 1fr; }
+  .who-card, .who-card:nth-child(4), .who-card:nth-child(5) { grid-column: auto; }
   .ecosystem-cards, .ecosystem-cards-3 { grid-template-columns: 1fr; }
   .ecosystem { padding: 60px 24px; }
     .content-grid { grid-template-columns: 1fr; }
@@ -1061,7 +1080,12 @@ footer {
   .razz-report-inner { grid-template-columns: 1fr; gap: 40px; }
     footer { padding: 56px 24px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
-  .footer-socials-row { flex-direction: column; align-items: flex-start; }
+  .footer-nav-col { text-align: center; }
+  .footer-links { align-items: center; }
+  .footer-sites-col { text-align: center; }
+  .footer-socials-row { flex-direction: column; align-items: center; }
+  .footer-socials { justify-content: center; }
+  .footer-bottom { justify-content: center; text-align: center; }
 }
 @media(max-width: 600px) {
   .hero h1 { font-size: clamp(3.5rem, 18vw, 6rem); }
@@ -1088,7 +1112,8 @@ nav.nav-light-page .hamburger span { background: var(--black); }
 
 .who-card-link {
   display: inline-block;
-  margin-top: 14px;
+  margin-top: auto;
+  padding-top: 14px;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.3px;
@@ -1097,6 +1122,12 @@ nav.nav-light-page .hamburger span { background: var(--black); }
   transition: color 0.2s;
 }
 .who-card-link:hover { color: var(--black); }
+.who-card-link.link-orange { color: var(--orange); }
+.who-card-link.link-orange:hover { color: var(--black); }
+.who-card-link.link-blue { color: var(--blue); }
+.who-card-link.link-blue:hover { color: var(--black); }
+.who-card-link.link-amber { color: var(--amber); }
+.who-card-link.link-amber:hover { color: var(--black); }
 </style>
 </head>
 <body>
@@ -1109,6 +1140,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
   <a href="solution.html" class="mobile-link">The Solution</a>
   <a href="who-we-are.html" class="mobile-link">Who We Are</a>
   <a href="who-its-for.html" class="mobile-link">Who We're For</a>
+  <a href="razz-report.html" class="mobile-link">The RAZZ Report</a>
   <a href="contact.html" class="mobile-cta">Get in Touch →</a>
 </div>
 <nav id="nav" class="nav-light-page">
@@ -1145,6 +1177,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
   <ul class="nav-links">
     <li><a href="problem.html">The Problem</a></li>
     <li><a href="solution.html">The Solution</a></li>
+    <li><a href="razz-report.html">The Report</a></li>
     <li><a href="who-we-are.html">Who We Are</a></li>
     <li><a href="who-its-for.html">Who We're For</a></li>
   </ul>
@@ -1170,43 +1203,36 @@ nav.nav-light-page .hamburger span { background: var(--black); }
       <div class="who-card">
         <span class="who-card-icon">🏠</span>
         <div class="who-card-title">Tenants</div>
-        <div class="who-card-body">In a lot of cases, renting makes more sense than buying. It also comes with just as much paperwork, just as many obligations, and just as many ways to get caught off guard. Know what you're signing and have someone in your corner every step of the way.</div>
-        <a href="https://therentalmarket.ca" target="_blank" rel="noopener" class="who-card-link">Free Resource · TheRentalMarket.ca →</a>
-      </div>
-
-      <div class="who-card">
-        <span class="who-card-icon">🔑</span>
-        <div class="who-card-title">Landlords</div>
-        <div class="who-card-body">Everything landlords need to navigate lease obligations, tenant screening, and the GTA rental market.</div>
-        <a href="https://therentalmarket.ca" target="_blank" rel="noopener" class="who-card-link">Free Resource · TheRentalMarket.ca →</a>
+        <div class="who-card-body">In many cases, renting makes more sense than buying. It still comes with paperwork, obligations, and plenty of ways to get caught off guard. Know what you're signing and have someone in your corner.</div>
+        <a href="https://therentalmarket.ca" target="_blank" rel="noopener" class="who-card-link link-orange">Free Resource · TheRentalMarket.ca →</a>
       </div>
 
       <div class="who-card">
         <span class="who-card-icon">🏡</span>
         <div class="who-card-title">Buyers</div>
         <div class="who-card-body">First home, move-up, or right-sizing after a life change — buying property is a major decision. We help you understand what you're committing to, build a strategy around your goals and timeline, and stay patient until we find the right one.</div>
-        <a href="https://thehousingmarket.ca" target="_blank" rel="noopener" class="who-card-link">Free Resource · TheHousingMarket.ca →</a>
+        <a href="https://thehousingmarket.ca" target="_blank" rel="noopener" class="who-card-link link-blue">Free Resource · TheHousingMarket.ca →</a>
       </div>
 
       <div class="who-card">
         <span class="who-card-icon">🏢</span>
-        <div class="who-card-title">Sellers</div>
-        <div class="who-card-body">A realistic, data-backed valuation and a marketing plan built around what actually makes sense for your property — not a generic playbook. No inflated promises to win your listing. Just an honest read of the market and a strategy designed to get you there.</div>
-        <a href="https://thehousingmarket.ca" target="_blank" rel="noopener" class="who-card-link">Free Resource · TheHousingMarket.ca →</a>
+        <div class="who-card-title">Owners</div>
+        <div class="who-card-body">A realistic, data-backed valuation and a strategy tailored to your property — whether you're selling, leasing, or evaluating your next move. No inflated promises to win your listing. Just an honest read of the market and a plan designed to get you there.</div>
+        <a href="https://thehousingmarket.ca" target="_blank" rel="noopener" class="who-card-link link-blue">Free Resource · TheHousingMarket.ca →</a>
       </div>
 
       <div class="who-card">
         <span class="who-card-icon">🏗️</span>
         <div class="who-card-title">Business Owners</div>
-        <div class="who-card-body">Whether you're leasing your first commercial space, relocating, or evaluating ownership vs. renting — you need someone who understands the numbers and the nuance, not just the square footage.</div>
-        <a href="https://thecommercialmarket.ca" target="_blank" rel="noopener" class="who-card-link">Coming Soon · TheCommercialMarket.ca →</a>
+        <div class="who-card-body">Opening, relocating, or evaluating commercial space? We help you understand the numbers, the lease terms, and the long-term implications before you commit.</div>
+        <a href="https://thecommercialmarket.ca" target="_blank" rel="noopener" class="who-card-link link-amber">Coming Soon · TheCommercialMarket.ca →</a>
       </div>
 
       <div class="who-card">
         <span class="who-card-icon">📈</span>
         <div class="who-card-title">Investors</div>
-        <div class="who-card-body">You're making a financial decision with a decade-plus horizon. You need research, realism, and someone who'll tell you when the numbers don't work — not just validate the ones that do.</div>
-        <a href="https://thecommercialmarket.ca" target="_blank" rel="noopener" class="who-card-link">Coming Soon · TheCommercialMarket.ca →</a>
+        <div class="who-card-body">Investment properties live and die by the numbers. We help you pressure-test assumptions, understand the risks, and walk away when the deal doesn't make sense.</div>
+        <a href="https://thecommercialmarket.ca" target="_blank" rel="noopener" class="who-card-link link-amber">Coming Soon · TheCommercialMarket.ca →</a>
       </div>
 
     </div>
@@ -1230,11 +1256,8 @@ nav.nav-light-page .hamburger span { background: var(--black); }
       <p class="razz-report-close">Understand the market as it is — not as it's sold.<br><strong>Less noise. More signal.</strong><br><strong>One email, every other week.</strong></p>
     </div>
     <div class="razz-report-right">
-      <div class="razz-report-form">
-        <input type="email" class="razz-report-input" placeholder="your@email.com" />
-        <button class="razz-report-btn">Subscribe →</button>
-      </div>
-      <p class="razz-report-disclaimer">No spam. No sales pitch. Unsubscribe anytime.</p>
+      <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+      <iframe src="https://subscribe-forms.beehiiv.com/c490c18d-a98e-41fe-b23b-adacd138f35b" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 443px; height: 90px; margin: 0; border-radius: 10px !important; background-color: transparent; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); max-width: 100%;"></iframe>
       <div style="text-align:center;"><a href="razz-report.html" style="display:inline-block;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--blue);text-decoration:none;letter-spacing:0.3px;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--blue)'">Learn more about The RAZZ Report →</a></div>
     </div>
   </div>
@@ -1288,11 +1311,11 @@ nav.nav-light-page .hamburger span { background: var(--black); }
       <div class="footer-sites-col">
         <div class="footer-nav-label">The Ecosystem</div>
         <a href="https://thehousingmarket.ca" class="footer-site-link housing" target="_blank">
-          <div class="footer-site-label">For Buyers &amp; Sellers</div>
+          <div class="footer-site-label">For Buyers &amp; Owners</div>
           <div class="footer-site-name">TheHousingMarket.ca</div>
         </a>
         <a href="https://therentalmarket.ca" class="footer-site-link rental" target="_blank">
-          <div class="footer-site-label">For Tenants &amp; Landlords</div>
+          <div class="footer-site-label">For Tenants</div>
           <div class="footer-site-name">TheRentalMarket.ca</div>
         </a>
         <a href="https://thecommercialmarket.ca" class="footer-site-link commercial" target="_blank">
@@ -1315,7 +1338,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
     </div>
 
     <div class="footer-bottom">
-      <span>© 2025 RAZZ Real Estate Group · Jordan Buttarazzi · Toronto &amp; GTA</span>
+      <span>© 2026 RAZZ Real Estate Group · Jordan Buttarazzi, Real Estate Broker · RECO Lic. 5009855 · REAL Broker Ontario Ltd., Brokerage</span>
       <span>Not legal or financial advice. All real estate decisions should involve qualified professional guidance.</span>
     </div>
   </div>
@@ -1347,6 +1370,7 @@ nav.nav-light-page .hamburger span { background: var(--black); }
   }
 })();
 </script>
+
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/
 </body>
