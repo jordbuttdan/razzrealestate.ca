@@ -15,14 +15,14 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="RAZZ — Jordan Buttarazzi | Remarkably Real">
 <meta name="twitter:description" content="Jordan Buttarazzi — real estate, content, community. Remarkably real.">
 <meta name="twitter:image" content="https://www.razzrealestate.ca/og-image.jpg">
 <meta name="description" content="Jordan Buttarazzi — real estate advisor, content creator, community builder. Remarkably real.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Caveat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;700&family=Oswald:wght@700&family=Permanent+Marker&family=Anton&family=Courier+Prime:wght@700&family=Sacramento&family=Black+Ops+One&family=Fascinate+Inline&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Caveat:wght@400;700&display=swap">
 <style>
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -97,7 +97,7 @@ nav.scrolled .nav-links a:hover { color: var(--black); }
   transition: all 0.25s;
   letter-spacing: 0.3px;
 }
-.nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px) scale(1.03); box-shadow: 0 4px 16px rgba(113,169,188,0.3); }
 
 /* HAMBURGER */
 .hamburger {
@@ -235,6 +235,13 @@ nav.scrolled .hamburger span { background: var(--black); }
   transform: scale(1);
   filter: blur(0);
 }
+.hero-morph-text.breathing {
+  animation: breathe 3.5s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.96); }
+}
 .hero-morph-svg.exiting {
   transition: opacity 250ms ease, filter 250ms ease;
   opacity: 0;
@@ -245,10 +252,6 @@ nav.scrolled .hamburger span { background: var(--black); }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
 }
 
 /* ───── SECTION SHARED ───── */
@@ -286,6 +289,10 @@ nav.scrolled .hamburger span { background: var(--black); }
   opacity: 1;
   transform: translateY(0);
 }
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.35s; }
 
 /* ───── ABOUT ───── */
 .about {
@@ -424,43 +431,76 @@ nav.scrolled .hamburger span { background: var(--black); }
 }
 .content-platforms {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 48px;
 }
 .platform-card {
-  background: var(--off);
-  border: 1px solid var(--grey-light);
-  border-radius: 10px;
-  padding: 32px 24px;
-  text-align: center;
+  background: var(--black);
+  border-radius: 12px;
+  overflow: hidden;
   text-decoration: none;
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  position: relative;
 }
 .platform-card:hover {
-  border-color: var(--blue);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.15);
 }
-.platform-icon { width: 36px; height: 36px; color: var(--grey); transition: color 0.3s; }
-.platform-card:hover .platform-icon { color: var(--black); }
-.platform-card:hover .platform-icon.yt { color: #FF0000; }
-.platform-card:hover .platform-icon.ig { color: #E1306C; }
-.platform-card:hover .platform-icon.tt { color: var(--black); }
-.platform-card:hover .platform-icon.li { color: #0A66C2; }
-.platform-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 1.5px;
-  color: var(--black);
+.platform-embed {
+  width: 100%;
+  aspect-ratio: 9/16;
+  background: var(--black-soft);
+  position: relative;
+  overflow: hidden;
 }
-.platform-handle {
-  font-size: 0.75rem;
-  color: var(--grey);
+.platform-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.platform-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+.platform-badge-icon { width: 18px; height: 18px; color: white; }
+.platform-badge-icon.yt { color: #FF0000; }
+.platform-badge-icon.ig { color: #E1306C; }
+.platform-badge-icon.tt { color: white; }
+.platform-badge-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.5px;
+}
+.platform-card-info {
+  padding: 16px 18px;
+  background: var(--black);
+}
+.platform-card-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.platform-card-handle {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
   font-weight: 300;
 }
 
@@ -579,6 +619,57 @@ nav.scrolled .hamburger span { background: var(--black); }
   color: var(--blue); text-decoration: none; letter-spacing: 0.3px; transition: color 0.2s;
 }
 .razz-report-learn-more:hover { color: white; }
+
+.rr-accordion-wrapper {
+  max-width: 1100px; margin: 40px auto 0; text-align: center;
+}
+.rr-accordion-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.82rem; font-weight: 600;
+  color: var(--blue); cursor: pointer; letter-spacing: 0.3px;
+  transition: color 0.2s; background: none; border: none;
+  font-family: 'Nunito', sans-serif; padding: 0;
+}
+.rr-accordion-toggle:hover { color: white; }
+.rr-accordion-toggle .rr-arrow {
+  display: inline-block; transition: transform 0.3s; font-size: 0.7rem;
+}
+.rr-accordion-toggle.open .rr-arrow { transform: rotate(180deg); }
+.rr-accordion-panel {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+  margin-top: 0;
+}
+.rr-accordion-panel.open { max-height: 1200px; }
+.rr-issues-list {
+  padding: 24px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  text-align: left;
+}
+.rr-issue-link {
+  display: flex; flex-direction: column; justify-content: flex-start;
+  padding: 24px; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;
+  text-decoration: none; transition: all 0.25s;
+}
+.rr-issue-link:hover {
+  background: rgba(255,255,255,0.08); border-color: var(--blue);
+  transform: translateY(-3px);
+}
+.rr-issue-date {
+  font-size: 0.65rem; color: var(--blue); font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;
+}
+.rr-issue-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; font-weight: 400;
+  color: var(--white); line-height: 1.2; letter-spacing: 0.5px; margin-bottom: 12px;
+}
+.rr-issue-desc {
+  font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.6;
+  font-weight: 300; flex: 1; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+}
+.rr-loading { font-size: 0.78rem; color: rgba(255,255,255,0.3); padding: 12px 0; }
+@media(max-width:900px){ .rr-issues-list { grid-template-columns: 1fr 1fr; } }
+@media(max-width:600px){ .rr-issues-list { grid-template-columns: 1fr; } }
 
 /* ───── ECOSYSTEM ───── */
 .ecosystem {
@@ -705,7 +796,7 @@ nav.scrolled .hamburger span { background: var(--black); }
   border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.92rem;
   font-weight: 700; text-decoration: none; transition: all 0.3s;
 }
-.btn-white:hover { background: #5a95a8; transform: translateY(-2px); }
+.btn-white:hover { background: #5a95a8; transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 24px rgba(113,169,188,0.35); }
 
 /* ───── FOOTER ───── */
 footer {
@@ -744,10 +835,16 @@ footer {
   font-size: 0.82rem;
   transition: color 0.2s;
   font-weight: 300;
+  position: relative;
+}
+.footer-links a::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px;
+  background: var(--blue); transition: width 0.3s ease;
 }
 .footer-links a:hover { color: var(--white); }
+.footer-links a:hover::after { width: 100%; }
 
-.footer-sites-col {}
+.footer-sites-col { }
 .footer-site-link {
   display: block; text-decoration: none;
   padding: 14px 18px; border-radius: 8px;
@@ -759,6 +856,9 @@ footer {
 .footer-site-link.rental:hover { background: rgba(255,92,26,0.22); }
 .footer-site-link.commercial { background: rgba(255,158,0,0.1); border: 1px solid rgba(255,158,0,0.3); }
 .footer-site-link.commercial:hover { background: rgba(255,158,0,0.2); }
+.footer-site-link.homekeep { background: rgba(113,169,188,0.1); border: 1px solid rgba(113,169,188,0.3); cursor:default; }
+.footer-site-link.homekeep .footer-site-label { color: #71a9bc; }
+.footer-site-link.homekeep .footer-site-name { color: #71a9bc; }
 .footer-site-label {
   font-size: 0.58rem; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 3px;
 }
@@ -799,6 +899,11 @@ footer {
 .soc.youtube:hover { border-color: #FF0000; color: #FF0000; }
 .soc.instagram:hover { border-color: #E1306C; color: #E1306C; }
 .soc.facebook:hover { border-color: #1877F2; color: #1877F2; }
+
+.footer-email { font-size:0.78rem; color:rgba(255,255,255,0.35); text-decoration:none; transition:color 0.2s; margin-top:2px; }
+.footer-email:hover { color: var(--blue); }
+.footer-bottom-email { color:rgba(255,255,255,0.35); text-decoration:none; transition:color 0.2s; }
+.footer-bottom-email:hover { color: var(--blue); }
 
 .footer-bottom {
   display: flex;
@@ -847,7 +952,7 @@ footer {
   <a href="#content">Content</a>
   <a href="#razz-report">Newsletter</a>
   <a href="#projects">Projects</a>
-  <a href="#contact" class="mobile-cta">Get in Touch</a>
+  <a href="#" data-cal-link="jordan-buttarazzi/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="mobile-cta">Get in Touch</a>
 </div>
 
 <!-- NAV -->
@@ -861,7 +966,7 @@ footer {
     <li><a href="#razz-report">Newsletter</a></li>
     <li><a href="#projects">Projects</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get in Touch</a>
+  <a href="#" data-cal-link="jordan-buttarazzi/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="nav-cta">Get in Touch</a>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -898,16 +1003,15 @@ footer {
 
     <!-- Photo -->
     <div class="about-photo-wrapper">
-      <img src="newsitepice.jpg" alt="Jordan Buttarazzi" class="about-photo">
+      <img src="newsitepice.jpg" alt="Jordan Buttarazzi" class="about-photo" loading="lazy">
       <div class="about-photo-subtext">Jordan Butta<span class="razz-tight">razz</span>i &mdash; Real Estate Broker</div>
     </div>
     <div class="about-text">
-      <p>Hi, I'm Jordan.</p>
-      <p>I've been blessed to be on this planet for 30 years. In another 30, maybe I'll be doing real estate on Mars.</p>
-      <p>Til' then, I'm loving it down here, working with people like you through one of the most important parts of your life:<br><span style="color:var(--blue);font-weight:600;">your move.</span></p>
-      <p>But let's call it what it is: moving is a life trajectory change... And it's stressful.</p>
-      <p>Whether you're <strong style="color:var(--blue);">buying</strong> your first place, moving into a <strong style="color:var(--blue);">rental</strong> with your partner, or <strong style="color:var(--blue);">selling</strong> your starter home to move your family forward, these decisions carry real weight. They shape where you live, how you live, and what your next chapters might look like.</p>
-      <p><strong style="color:var(--black);">My job is simple:</strong> help you make those decisions with clarity, confidence, and the best information possible.</p>
+      <p>I've been blessed to be on this planet for 30 years.<br>In another 30, maybe I'll be doing real estate on Mars.</p>
+      <p>Until then, I'm loving it down here... working with people like you through one of the most important moments in your life:<br><span style="color:var(--blue);font-weight:600;">Moving.</span></p>
+      <p>But let's call it what it is. Moving is a life trajectory change...<br>And it's stressful.</p>
+      <p>Whether you're <strong style="color:var(--blue);">buying</strong> your first place, moving into a <strong style="color:var(--blue);">rental</strong> with your partner, or <strong style="color:var(--blue);">selling</strong> your starter home to move your family forward, these decisions carry real weight. They shape where you live, how you live, and what your next chapter might look like.</p>
+      <p><strong style="color:var(--black);">My job is simple:</strong> help you make those decisions with clarity, confidence, and the best information possible. With a few laughs along the way.</p>
       <p style="color:var(--blue);font-weight:700;">So you can make smart moves for what matters most.</p>
     </div>
     <div class="about-signature">— JB</div>
@@ -919,34 +1023,53 @@ footer {
   <div class="content-inner">
     <div class="section-label fade-up">Content</div>
     <h2 class="section-title fade-up">Follow the<br><span style="color:var(--blue);">Journey.</span></h2>
-    <p class="content-sub fade-up">Real estate education, market breakdowns, and behind-the-scenes content — delivered in a way that's actually worth your time.</p>
+    <p class="content-sub fade-up">Breaking down the sales, analyzing stats, and making fun of myself in skits.</p>
 
     <div class="content-platforms fade-up">
-      <a href="https://www.youtube.com/@JordanButtarazzi" target="_blank" rel="noopener" class="platform-card">
-        <svg class="platform-icon yt" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98" fill="#fff"/></svg>
-        <div class="platform-name">YouTube</div>
-        <div class="platform-handle">@JordanButtarazzi</div>
-      </a>
-      <a href="https://www.instagram.com/jordanbuttarazzi/" target="_blank" rel="noopener" class="platform-card">
-        <svg class="platform-icon ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        <div class="platform-name">Instagram</div>
-        <div class="platform-handle">@jordanbuttarazzi</div>
-      </a>
-      <a href="https://www.tiktok.com/@jordanbuttarazzi" target="_blank" rel="noopener" class="platform-card">
-        <svg class="platform-icon tt" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
-        <div class="platform-name">TikTok</div>
-        <div class="platform-handle">@jordanbuttarazzi</div>
-      </a>
-      <a href="https://www.linkedin.com/in/jordanbuttarazzi/" target="_blank" rel="noopener" class="platform-card">
-        <svg class="platform-icon li" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        <div class="platform-name">LinkedIn</div>
-        <div class="platform-handle">Jordan Buttarazzi</div>
-      </a>
+      <div class="platform-card">
+        <div class="platform-embed">
+          <div class="platform-badge">
+            <svg class="platform-badge-icon yt" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98" fill="#fff"/></svg>
+            <span class="platform-badge-name">Shorts</span>
+          </div>
+          <iframe src="https://www.youtube.com/embed/tBjFsOwdNzY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="platform-card-info">
+          <div class="platform-card-title">Latest Short</div>
+          <div class="platform-card-handle">@JordanButtarazzi</div>
+        </div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-embed">
+          <div class="platform-badge">
+            <svg class="platform-badge-icon ig" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5" fill="#000"/><circle cx="17.5" cy="6.5" r="1.2" fill="#000"/></svg>
+            <span class="platform-badge-name">Reels</span>
+          </div>
+          <iframe src="https://www.instagram.com/p/DH7B0KvghpN/embed/" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+        </div>
+        <div class="platform-card-info">
+          <div class="platform-card-title">Latest Reel</div>
+          <div class="platform-card-handle">@jordanbuttarazzi</div>
+        </div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-embed">
+          <div class="platform-badge">
+            <svg class="platform-badge-icon tt" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            <span class="platform-badge-name">TikTok</span>
+          </div>
+          <iframe src="https://www.tiktok.com/embed/v2/7550089124082879751" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="platform-card-info">
+          <div class="platform-card-title">Latest TikTok</div>
+          <div class="platform-card-handle">@jordanbuttarazzi</div>
+        </div>
+      </div>
     </div>
 
-    <div class="content-featured-label fade-up">LATEST</div>
-    <div class="content-featured-grid fade-up">
-      <div class="featured-card">
+    <div class="content-featured-label fade-up">YOUTUBE</div>
+    <div class="content-featured-grid fade-up" style="grid-template-columns: 1fr;">
+      <a href="https://www.youtube.com/@JordanButtarazzi" target="_blank" rel="noopener" class="featured-card">
         <div class="featured-thumb">
           <div class="featured-play">&#9654;</div>
         </div>
@@ -954,16 +1077,7 @@ footer {
           <div class="featured-tag">YouTube</div>
           <div class="featured-title">Latest Video — Coming Soon</div>
         </div>
-      </div>
-      <div class="featured-card">
-        <div class="featured-thumb">
-          <div class="featured-play">&#9654;</div>
-        </div>
-        <div class="featured-info">
-          <div class="featured-tag">Short</div>
-          <div class="featured-title">Latest Short — Coming Soon</div>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -973,7 +1087,7 @@ footer {
   <div class="razz-report-inner fade-up">
     <div class="razz-report-left">
       <div class="section-label" style="color:var(--blue);">The RAZZ Report</div>
-      <h3 class="razz-report-heading">Greater Toronto Area Real Estate &mdash;<br><span style="color:var(--blue);">Without the Noise.</span></h3>
+      <h2 class="razz-report-heading">Greater Toronto Area Real Estate &mdash;<br><span style="color:var(--blue);">Without the Noise.</span></h2>
       <p class="razz-report-sub">Stats, skits, and a little satire &mdash; real estate, minus the fluff.</p>
       <div class="razz-pillars">
         <span class="razz-pillar"><strong>[R]</strong>esearch</span>
@@ -986,7 +1100,16 @@ footer {
     <div class="razz-report-right">
       <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
       <iframe src="https://subscribe-forms.beehiiv.com/c490c18d-a98e-41fe-b23b-adacd138f35b" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 443px; height: 90px; margin: 0; border-radius: 10px !important; background-color: transparent; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); max-width: 100%;"></iframe>
-      <a href="razz-report.html" class="razz-report-learn-more">Learn more about The RAZZ Report &rarr;</a>
+    </div>
+  </div>
+  <div class="rr-accordion-wrapper fade-up">
+    <button class="rr-accordion-toggle" aria-expanded="false" aria-controls="rrIssuesList" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'));if(!this.dataset.loaded){this.dataset.loaded='1';loadRazzIssues();}">
+      See Latest Issues <span class="rr-arrow">&#9660;</span>
+    </button>
+    <div class="rr-accordion-panel">
+      <div class="rr-issues-list" id="rrIssuesList">
+        <div class="rr-loading">Loading issues...</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1016,8 +1139,8 @@ footer {
       </div>
       <div class="ecosystem-card homekeep coming-soon">
         <div class="eco-card-badge">Coming Soon</div>
-        <div class="eco-card-title">HomeKeep</div>
-        <div class="eco-card-body">A home maintenance app to help homeowners stay on top of their property.</div>
+        <div class="eco-card-title">HomeKeep App</div>
+        <div class="eco-card-body">A home maintenance app to help renters and owners stay on top of their space.</div>
       </div>
     </div>
   </div>
@@ -1029,22 +1152,22 @@ footer {
     <div class="section-label fade-up">Testimonials</div>
     <h2 class="section-title fade-up">What People<br><span style="color:var(--blue);">Are Saying.</span></h2>
     <div class="testimonial-grid">
-      <div class="testimonial-card fade-up">
+      <div class="testimonial-card fade-up stagger-1">
         <div class="testimonial-stars"><svg class="google-g" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A11.96 11.96 0 0 0 1 12c0 1.94.46 3.77 1.18 5.07l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <div class="testimonial-text">&ldquo;Jordan is an amazing realtor, but most of all&hellip;just an all-around good guy. He has a calm, reassuring presence about him, which is crucial in such a stressful life changing process.&rdquo;</div>
         <div class="testimonial-author">Natalie Gordon</div>
       </div>
-      <div class="testimonial-card fade-up">
+      <div class="testimonial-card fade-up stagger-2">
         <div class="testimonial-stars"><svg class="google-g" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A11.96 11.96 0 0 0 1 12c0 1.94.46 3.77 1.18 5.07l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <div class="testimonial-text">&ldquo;We&rsquo;ve been in touch with Jordan for a while now but we only just recently purchased our first home. He has always been patient with us and never pushed us to make a decision we weren&rsquo;t comfortable with.&rdquo;</div>
         <div class="testimonial-author">Sabrina Sundermeier</div>
       </div>
-      <div class="testimonial-card fade-up">
+      <div class="testimonial-card fade-up stagger-3">
         <div class="testimonial-stars"><svg class="google-g" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A11.96 11.96 0 0 0 1 12c0 1.94.46 3.77 1.18 5.07l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <div class="testimonial-text">&ldquo;Jordan was fantastic. He invested time whereby he learned about our goals. Expect an honest appraisal and transparency. He had our best interests at heart.&rdquo;</div>
         <div class="testimonial-author">Karen Rousseau</div>
       </div>
-      <div class="testimonial-card fade-up">
+      <div class="testimonial-card fade-up stagger-4">
         <div class="testimonial-stars"><svg class="google-g" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A11.96 11.96 0 0 0 1 12c0 1.94.46 3.77 1.18 5.07l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <div class="testimonial-text">&ldquo;He went out of his way to make things easy for us. It was a great feeling having him in our corner to help us get the best home for our family. He&rsquo;s a rare combination of down to earth and relaxed, but on top of everything.&rdquo;</div>
         <div class="testimonial-author">Alex Klaver</div>
@@ -1062,7 +1185,7 @@ footer {
     <div class="cta-eyebrow">No Pitch. No Pressure. Just a Conversation.</div>
     <h2>Ready<br>When<br>You Are.</h2>
     <div class="cta-btns">
-      <a href="https://cal.com/jordan-buttarazzi" target="_blank" rel="noopener" class="btn-white">Get in Touch &rarr;</a>
+      <a href="#" data-cal-link="jordan-buttarazzi/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-white">Get in Touch &rarr;</a>
     </div>
     <p>Ready to move? We'll build a plan. Not sure where to start? We'll figure it out.</p>
   </div>
@@ -1076,6 +1199,10 @@ footer {
       <!-- Brand col -->
       <div class="footer-brand-col">
         <img src="RAZZREG.svg" alt="RAZZ Real Estate Group">
+        <div style="margin-top:12px;font-size:0.82rem;color:rgba(255,255,255,0.5);font-weight:300;">Jordan Buttarazzi</div>
+        <a href="mailto:jordan@razzrealestate.ca" class="footer-email">jordan@razzrealestate.ca</a>
+        <img src="real-logo.svg" alt="REAL Broker" style="width:238px;height:auto;margin-top:14px;">
+        <div style="font-size:0.68rem;color:rgba(255,255,255,0.3);font-weight:300;margin-top:4px;">REAL Broker Ontario Ltd., Brokerage</div>
       </div>
 
       <!-- Nav col 1 -->
@@ -1093,8 +1220,8 @@ footer {
       <div class="footer-nav-col">
         <div class="footer-nav-label">Connect</div>
         <div class="footer-links">
-          <a href="razz-report.html">The RAZZ Report</a>
-          <a href="https://cal.com/jordan-buttarazzi" target="_blank" rel="noopener">Book a Call</a>
+          <a href="#razz-report">The RAZZ Report</a>
+          <a href="#" data-cal-link="jordan-buttarazzi/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a Call</a>
           <a href="privacy.html">Privacy Policy</a>
           <a href="terms.html">Terms of Use</a>
         </div>
@@ -1103,18 +1230,22 @@ footer {
       <!-- Sites col -->
       <div class="footer-sites-col">
         <div class="footer-nav-label">The Ecosystem</div>
-        <a href="https://thehousingmarket.ca" class="footer-site-link housing" target="_blank">
+        <a href="https://thehousingmarket.ca" class="footer-site-link housing" target="_blank" rel="noopener">
           <div class="footer-site-label">For Buyers &amp; Owners</div>
           <div class="footer-site-name">TheHousingMarket.ca</div>
         </a>
-        <a href="https://therentalmarket.ca" class="footer-site-link rental" target="_blank">
+        <a href="https://therentalmarket.ca" class="footer-site-link rental" target="_blank" rel="noopener">
           <div class="footer-site-label">For Tenants</div>
           <div class="footer-site-name">TheRentalMarket.ca</div>
         </a>
-        <a href="https://thecommercialmarket.ca" class="footer-site-link commercial" target="_blank">
+        <a href="https://thecommercialmarket.ca" class="footer-site-link commercial" target="_blank" rel="noopener">
           <div class="footer-site-label">For Businesses &amp; Investors</div>
           <div class="footer-site-name">TheCommercialMarket.ca</div>
         </a>
+        <div class="footer-site-link homekeep">
+          <div class="footer-site-label">For You</div>
+          <div class="footer-site-name">HomeKeep App</div>
+        </div>
       </div>
 
     </div>
@@ -1130,8 +1261,8 @@ footer {
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; 2026 RAZZ Real Estate Group &middot; Jordan Buttarazzi, Real Estate Broker &middot; <a href="mailto:jordan@razzrealestate.ca" style="color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">jordan@razzrealestate.ca</a> &middot; RECO Lic. 5009855 &middot; REAL Broker Ontario Ltd., Brokerage</span>
-      <span>Not legal or financial advice. All real estate decisions should involve qualified professional guidance.</span>
+      <span>&copy; 2026 RAZZ Real Estate Group &middot; Jordan Buttarazzi, Real Estate Broker &middot; <a href="mailto:jordan@razzrealestate.ca" class="footer-bottom-email">jordan@razzrealestate.ca</a> &middot; RECO Lic. 5009855 &middot; REAL Broker Ontario Ltd., Brokerage</span>
+      <span>The content on this site is for informational purposes only and does not constitute legal, financial, or professional real estate advice. Every real estate transaction is unique. Always consult qualified legal, financial, and real estate professionals before making decisions. Past market data and opinions shared here do not guarantee future results.</span>
     </div>
   </div>
 </footer>
@@ -1148,9 +1279,12 @@ footer {
   var ham = document.getElementById('hamburger');
   var menu = document.getElementById('mobileMenu');
   if(ham && menu){
+    ham.setAttribute('aria-expanded', 'false');
+    ham.setAttribute('aria-controls', 'mobileMenu');
     ham.addEventListener('click', function(){
       ham.classList.toggle('open');
       menu.classList.toggle('open');
+      ham.setAttribute('aria-expanded', ham.classList.contains('open'));
     });
     menu.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click', function(){
@@ -1285,6 +1419,7 @@ footer {
         setTimeout(function(){
           morphSvg.classList.add('exiting');
           morphText.classList.add('active');
+          setTimeout(function(){ morphText.classList.add('breathing'); }, 600);
         }, 300);
         return;
       }
@@ -1302,7 +1437,7 @@ footer {
         morphPath.setAttribute('d', interps[beat](t));
       }
 
-      setTimeout(tick, 16);
+      requestAnimationFrame(tick);
     }
 
     // Delay morph start by 2 seconds
@@ -1311,6 +1446,65 @@ footer {
   .catch(function(e){ console.error('[morph] ERROR:', e.message, e.stack); });
 })();
 </script>
+<script>
+function parseAndRenderIssues(xml){
+  var list = document.getElementById('rrIssuesList');
+  var doc = new DOMParser().parseFromString(xml, 'text/xml');
+  var items = doc.querySelectorAll('item');
+  if(!items.length) throw new Error('empty');
+  var html = '';
+  var count = Math.min(items.length, 6);
+  for(var i = 0; i < count; i++){
+    var title = items[i].querySelector('title').textContent;
+    var link = items[i].querySelector('link').textContent;
+    var pubDate = items[i].querySelector('pubDate');
+    var desc = items[i].querySelector('description');
+    var dateStr = '';
+    if(pubDate){
+      var d = new Date(pubDate.textContent);
+      dateStr = d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+    }
+    var descText = '';
+    if(desc){
+      var tmp = document.createElement('div');
+      tmp.innerHTML = desc.textContent;
+      descText = tmp.textContent.trim().substring(0, 160);
+      if(desc.textContent.length > 160) descText += '...';
+    }
+    html += '<a href="' + link + '" target="_blank" rel="noopener" class="rr-issue-link">';
+    if(dateStr) html += '<span class="rr-issue-date">' + dateStr + '</span>';
+    html += '<span class="rr-issue-title">' + title + '</span>';
+    if(descText) html += '<span class="rr-issue-desc">' + descText + '</span>';
+    html += '</a>';
+  }
+  list.innerHTML = html;
+}
+function loadRazzIssues(){
+  var list = document.getElementById('rrIssuesList');
+  var directUrl = 'https://rss.beehiiv.com/feeds/UBFes4EH2v.xml';
+  var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(directUrl);
+  // Try direct first, fallback to CORS proxy
+  fetch(directUrl).then(function(r){
+    if(!r.ok) throw new Error('direct failed');
+    return r.text();
+  }).then(parseAndRenderIssues).catch(function(){
+    // Fallback: CORS proxy
+    fetch(proxyUrl).then(function(r){
+      if(!r.ok) throw new Error('proxy failed');
+      return r.text();
+    }).then(parseAndRenderIssues).catch(function(){
+      list.innerHTML = '<a href="https://razzrealestate.beehiiv.com" target="_blank" rel="noopener" class="rr-issue-link"><span class="rr-issue-title">View all issues on The RAZZ Report &rarr;</span></a>';
+    });
+  });
+}
+</script>
 
+<!-- Cal element-click embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "30min", {origin:"https://app.cal.com"});
+  Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+<!-- Cal element-click embed code ends -->
 </body>
 </html>

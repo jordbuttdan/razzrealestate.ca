@@ -2,46 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.razzrealestate.ca/</loc>
+    <lastmod>2026-03-13</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.razzrealestate.ca/problem.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.razzrealestate.ca/solution.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.razzrealestate.ca/who-we-are.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.razzrealestate.ca/who-its-for.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.razzrealestate.ca/razz-report.html</loc>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.razzrealestate.ca/contact.html</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://www.razzrealestate.ca/privacy.html</loc>
+    <lastmod>2026-03-02</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://www.razzrealestate.ca/terms.html</loc>
+    <lastmod>2026-03-02</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
