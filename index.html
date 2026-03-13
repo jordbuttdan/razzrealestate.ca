@@ -167,6 +167,7 @@ nav.scrolled .hamburger span { background: var(--black); }
   padding: 80px 40px 160px;
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 .hero::after {
   content: '';
@@ -200,7 +201,7 @@ nav.scrolled .hamburger span { background: var(--black); }
   margin-top: 36px;
   margin-bottom: 16px;
   opacity: 0;
-  animation: fadeUp 1.4s ease forwards 1.2s;
+  animation: fadeUp 1.4s ease forwards 0.84s;
 }
 .hero-morph-container {
   position: relative;
@@ -209,7 +210,7 @@ nav.scrolled .hamburger span { background: var(--black); }
   align-items: center;
   justify-content: center;
   opacity: 0;
-  animation: fadeUp 0.8s ease forwards 2.0s;
+  animation: fadeUp 0.8s ease forwards 1.7s;
 }
 .hero-morph-svg {
   height: clamp(64px, 11vw, 110px);
@@ -290,6 +291,8 @@ nav.scrolled .hamburger span { background: var(--black); }
 .about {
   background: var(--white);
   padding: 0 40px 120px;
+  position: relative;
+  z-index: 1;
 }
 .about-inner {
   max-width: 900px;
@@ -297,6 +300,7 @@ nav.scrolled .hamburger span { background: var(--black); }
 }
 .about-photo-wrapper {
   text-align: center;
+  margin-top: 20px;
   margin-bottom: 64px;
 }
 .about-photo {
@@ -890,20 +894,21 @@ footer {
 <section class="about" id="about">
   <div class="about-inner fade-up">
 
+    <div class="section-label">About</div>
+
     <!-- Photo -->
     <div class="about-photo-wrapper">
       <img src="newsitepice.jpg" alt="Jordan Buttarazzi" class="about-photo">
       <div class="about-photo-subtext">Jordan Butta<span class="razz-tight">razz</span>i &mdash; Real Estate Broker</div>
     </div>
-
-    <div class="section-label">About</div>
     <div class="about-text">
-      <p>Hi, I'm Jordan. I've been blessed to be on this planet for 30 years. In another 30, maybe I'll be doing real estate on Mars.</p>
-      <p>Til then, I'm loving it down here, working with people like you through one of the most important parts of your life: <strong>your move.</strong></p>
+      <p>Hi, I'm Jordan.</p>
+      <p>I've been blessed to be on this planet for 30 years. In another 30, maybe I'll be doing real estate on Mars.</p>
+      <p>Til' then, I'm loving it down here, working with people like you through one of the most important parts of your life:<br><span style="color:var(--blue);font-weight:600;">your move.</span></p>
       <p>But let's call it what it is: moving is a life trajectory change... And it's stressful.</p>
-      <p>Whether you're buying your first place, moving into a rental with your partner, or selling your starter home to move your family forward, these decisions carry real weight. They shape where you live, how you live, and what your next chapters looks like.</p>
-      <p>My job is simple: help you make those decisions with clarity, confidence, and the best information possible.</p>
-      <p><strong>So you can make smart moves for what matters most.</strong></p>
+      <p>Whether you're <strong style="color:var(--blue);">buying</strong> your first place, moving into a <strong style="color:var(--blue);">rental</strong> with your partner, or <strong style="color:var(--blue);">selling</strong> your starter home to move your family forward, these decisions carry real weight. They shape where you live, how you live, and what your next chapters might look like.</p>
+      <p><strong style="color:var(--black);">My job is simple:</strong> help you make those decisions with clarity, confidence, and the best information possible.</p>
+      <p style="color:var(--blue);font-weight:700;">So you can make smart moves for what matters most.</p>
     </div>
     <div class="about-signature">— JB</div>
   </div>
@@ -1166,6 +1171,40 @@ footer {
     });
   });
 
+  // ── HERO SCROLL EFFECT ──
+  // Mode: 'fadeParallax' (A+B), 'zoom' (C)
+  var heroMode = 'zoom';
+  var hero = document.querySelector('.hero');
+  var heroInner = document.querySelector('.hero-inner');
+  var aboutPhoto = document.querySelector('.about-photo');
+  var heroH = hero.offsetHeight;
+
+  function onHeroScroll(){
+    var sy = window.scrollY;
+    if(sy > heroH) return;
+    var progress = sy / heroH; // 0 at top, 1 at hero end
+
+    if(heroMode === 'fadeParallax'){
+      // A: Fade out hero content
+      heroInner.style.opacity = 1 - progress * 1.8;
+      // B: Parallax — hero content rises faster
+      heroInner.style.transform = 'translateY(-' + (sy * 0.4) + 'px)';
+      // B: About photo subtle parallax (slower movement)
+      if(aboutPhoto){
+        var photoRect = aboutPhoto.getBoundingClientRect();
+        var photoProgress = Math.max(0, Math.min(1, 1 - (photoRect.top / window.innerHeight)));
+        aboutPhoto.style.transform = 'translateY(' + (photoProgress * -30) + 'px)';
+      }
+    } else if(heroMode === 'zoom'){
+      // C: RAZZ text scales up and fades out
+      var scale = 1 + progress * 1.5;
+      heroInner.style.opacity = 1 - progress * 2;
+      heroInner.style.transform = 'scale(' + scale + ')';
+      heroInner.style.filter = 'blur(' + (progress * 8) + 'px)';
+    }
+  }
+  window.addEventListener('scroll', onHeroScroll, {passive: true});
+
   // ── FADE UP OBSERVER ──
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -1188,8 +1227,8 @@ footer {
   var morphText = document.getElementById('morphText');
 
   // Timing: hold each shape, then morph to the next
-  var holdTime = 180;   // ms to hold each shape
-  var morphTime = 542;  // ms per morph transition
+  var holdTime = 115;   // ms to hold each shape
+  var morphTime = 347;  // ms per morph transition
   var beatTime = holdTime + morphTime;
 
   function getMainPath(svgText){
@@ -1267,7 +1306,7 @@ footer {
     }
 
     // Delay morph start by 2 seconds
-    setTimeout(function(){ startTs = performance.now(); tick(); }, 1800);
+    setTimeout(function(){ startTs = performance.now(); tick(); }, 1530);
   })
   .catch(function(e){ console.error('[morph] ERROR:', e.message, e.stack); });
 })();
