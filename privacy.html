@@ -246,7 +246,7 @@ footer {
   margin-bottom: 32px;
   align-items: start;
 }
-.footer-brand-col { display: flex; flex-direction: column; justify-content: flex-start; }
+.footer-brand-col { display: flex; flex-direction: column; justify-content: flex-start; align-items: center; text-align: center; }
 .footer-logo-svg { width: 180px; height: auto; display: block; margin-bottom: 14px; color: white; }
 .footer-tagline {
   font-size: 0.78rem;
@@ -326,6 +326,9 @@ footer {
 .footer-site-link.housing .footer-site-name { color: var(--blue); }
 .footer-site-link.rental .footer-site-name { color: var(--orange); }
 .footer-site-link.commercial .footer-site-name { color: var(--amber); }
+.footer-site-link.homekeep { background: rgba(113,169,188,0.1); border: 1px solid rgba(113,169,188,0.3); cursor:default; }
+.footer-site-link.homekeep .footer-site-label { color: #71a9bc; }
+.footer-site-link.homekeep .footer-site-name { color: #71a9bc; }
 
 
 /* Socials row */
@@ -395,7 +398,7 @@ footer {
 nav.scrolled .nav-logo img { filter: none; }
 .footer-brand-col img { height: auto; display: block; margin-bottom: 4px; filter: brightness(0) invert(1); }
 .footer-brand-col img:first-of-type { width: 260px; }
-.footer-brand-col img[alt="REAL Broker"] { width: 238px; filter: none; }
+.footer-brand-col img[alt="Valery Real Estate Inc."] { width: 238px; filter: none; }
 
 /* ACTIVE NAV */
 .nav-links a.nav-active { color: var(--amber); }
@@ -500,10 +503,7 @@ nav.scrolled .nav-logo img { filter: none; }
       <!-- Brand col -->
       <div class="footer-brand-col">
         <img src="RAZZREG.svg" alt="RAZZ Real Estate Group">
-        <div style="margin-top:12px;font-size:0.82rem;color:rgba(255,255,255,0.5);font-weight:300;">Jordan Buttarazzi</div>
-        <a href="mailto:jordan@razzrealestate.ca" class="footer-email">jordan@razzrealestate.ca</a>
-        <img src="real-logo.svg" alt="REAL Broker" style="width:238px;height:auto;margin-top:14px;">
-        <div style="font-size:0.68rem;color:rgba(255,255,255,0.3);font-weight:300;margin-top:4px;">REAL Broker Ontario Ltd., Brokerage</div>
+        <img src="valery-logo-white.png" alt="Valery Real Estate Inc." style="width:238px;height:auto;margin-top:36px;">
       </div>
 
       <!-- Nav col -->
@@ -542,6 +542,10 @@ nav.scrolled .nav-logo img { filter: none; }
           <div class="footer-site-label">For Businesses &amp; Investors</div>
           <div class="footer-site-name">TheCommercialMarket.ca</div>
         </a>
+        <div class="footer-site-link homekeep">
+          <div class="footer-site-label">For You</div>
+          <div class="footer-site-name">HomeKeep App</div>
+        </div>
       </div>
 
     </div>
@@ -558,7 +562,7 @@ nav.scrolled .nav-logo img { filter: none; }
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; 2026 RAZZ Real Estate Group &middot; Jordan Buttarazzi, Real Estate Broker &middot; RECO Lic. 5009855 &middot; REAL Broker Ontario Ltd., Brokerage</span>
+      <span>&copy; 2026 RAZZ Real Estate Group &middot; Jordan Buttarazzi, Real Estate Broker &middot; RECO Lic. 5009855 &middot; Valery Real Estate Inc., Brokerage</span>
       <span>The content on this site is for informational purposes only and does not constitute legal, financial, or professional real estate advice. Every real estate transaction is unique. Always consult qualified legal, financial, and real estate professionals before making decisions. Past market data and opinions shared here do not guarantee future results.</span>
     </div>
   </div>
