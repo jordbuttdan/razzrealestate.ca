@@ -974,7 +974,7 @@ footer {
     <li><a href="#razz-report">Newsletter</a></li>
     <li><a href="#projects">Projects</a></li>
   </ul>
-  <a href="#" data-cal-link="jordan-buttarazzi/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="nav-cta">Get in Touch</a>
+  <a href="#" data-cal-link="jordan-buttarazzi/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="nav-cta">Book a Call</a>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -1502,6 +1502,33 @@ function loadRazzIssues(){
     });
   });
 }
+</script>
+
+<!-- GHL Chat Widget -->
+<script src="https://beta.leadconnectorhq.com/loader.js"
+  data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="6a1da57f1b5a98ef9db06e70"></script>
+<script>
+(function(){
+  var tries = 0;
+  var iv = setInterval(function(){
+    var w = document.querySelector('chat-widget');
+    if(w){
+      clearInterval(iv);
+      if(w.parentElement !== document.body) document.body.appendChild(w);
+      var poll = setInterval(function(){
+        var root = w.shadowRoot;
+        if(root){
+          clearInterval(poll);
+          var s = document.createElement('style');
+          s.textContent = '.chat-bubble, .lc_text-widget--bubble { background: #71A9BC !important; }';
+          root.appendChild(s);
+        }
+      }, 200);
+    }
+    if(++tries > 100) clearInterval(iv);
+  }, 200);
+})();
 </script>
 
 <!-- Cal element-click embed code begins -->
