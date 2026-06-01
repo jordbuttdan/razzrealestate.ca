@@ -1505,31 +1505,7 @@ function loadRazzIssues(){
 </script>
 
 <!-- GHL Chat Widget -->
-<script src="https://beta.leadconnectorhq.com/loader.js"
-  data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-  data-widget-id="6a1da57f1b5a98ef9db06e70"></script>
-<script>
-(function(){
-  var tries = 0;
-  var iv = setInterval(function(){
-    var w = document.querySelector('chat-widget');
-    if(w){
-      clearInterval(iv);
-      if(w.parentElement !== document.body) document.body.appendChild(w);
-      var poll = setInterval(function(){
-        var root = w.shadowRoot;
-        if(root){
-          clearInterval(poll);
-          var s = document.createElement('style');
-          s.textContent = '.chat-bubble, .lc_text-widget--bubble { background: #71A9BC !important; }';
-          root.appendChild(s);
-        }
-      }, 200);
-    }
-    if(++tries > 100) clearInterval(iv);
-  }, 200);
-})();
-</script>
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a1dce309f5b0cd19afe8bec" data-source="WEB_USER"></script>
 
 <!-- Cal element-click embed code begins -->
 <script type="text/javascript">
