@@ -805,6 +805,8 @@ nav.scrolled .hamburger span { background: var(--black); }
   font-weight: 700; text-decoration: none; transition: all 0.3s;
 }
 .btn-white:hover { background: #5a95a8; transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 24px rgba(113,169,188,0.35); }
+.cta-booking { margin-top: 40px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+.cta-booking iframe { display: block; width: 100%; }
 
 /* ───── FOOTER ───── */
 footer {
@@ -960,7 +962,7 @@ footer {
   <a href="#content">Content</a>
   <a href="#razz-report">Newsletter</a>
   <a href="#projects">Projects</a>
-  <a href="#" data-cal-link="jordan-buttarazzi/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="mobile-cta">Get in Touch</a>
+  <a href="#contact" class="mobile-cta">Get in Touch</a>
 </div>
 
 <!-- NAV -->
@@ -974,7 +976,7 @@ footer {
     <li><a href="#razz-report">Newsletter</a></li>
     <li><a href="#projects">Projects</a></li>
   </ul>
-  <a href="#" data-cal-link="jordan-buttarazzi/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="nav-cta">Book a Call</a>
+  <a href="#contact" class="nav-cta">Book a Call</a>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -1192,10 +1194,10 @@ footer {
   <div class="cta-inner">
     <div class="cta-eyebrow">No Pitch. No Pressure. Just a Conversation.</div>
     <h2>Ready<br>When<br>You Are.</h2>
-    <div class="cta-btns">
-      <a href="#" data-cal-link="jordan-buttarazzi/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-white">Get in Touch &rarr;</a>
-    </div>
     <p>Ready to move? We'll build a plan. Not sure where to start? We'll figure it out.</p>
+    <div class="cta-booking">
+      <iframe src="https://api.leadconnectorhq.com/widget/booking/fPncsLL5T39i7n0w94Xj" style="width: 100%; border: none; overflow: hidden; min-height: 700px;" scrolling="no" id="fPncsLL5T39i7n0w94Xj_1781551496897"></iframe>
+    </div>
   </div>
 </section>
 
@@ -1226,7 +1228,7 @@ footer {
         <div class="footer-nav-label">Connect</div>
         <div class="footer-links">
           <a href="#razz-report">The RAZZ Report</a>
-          <a href="#" data-cal-link="jordan-buttarazzi/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a Call</a>
+          <a href="#contact">Book a Call</a>
           <a href="privacy.html">Privacy Policy</a>
           <a href="terms.html">Terms of Use</a>
         </div>
@@ -1505,14 +1507,20 @@ function loadRazzIssues(){
 </script>
 
 <!-- GHL Chat Widget -->
-<script src="https://beta.leadconnectorhq.com/loader.js" data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a1da6427645b2ba9a525887"></script>
+<style>
+  /* Pin GHL chat widget to bottom-right corner */
+  chat-widget {
+    position: fixed !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: 2147483000 !important;
+  }
+</style>
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a28378817728c1e13c1af1d"></script>
 
-<!-- Cal element-click embed code begins -->
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "30min", {origin:"https://app.cal.com"});
-  Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-</script>
-<!-- Cal element-click embed code ends -->
+<!-- GHL Booking Widget embed -->
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
 </body>
 </html>
