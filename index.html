@@ -39,6 +39,8 @@ html { scroll-behavior: smooth; }
 :root {
   --orange:      #FF5C1A;
   --amber:       #FF9E00;
+  --honey:       #F5B60C;
+  --magenta:     #D6336C;
   --amber-dark:  #e08c00;
   --blue:        #71A9BC;
   --blue-dark:   #5a8fa0;
@@ -79,7 +81,7 @@ nav.scrolled {
   box-shadow: 0 1px 0 rgba(0,0,0,0.08);
   backdrop-filter: blur(12px);
 }
-.nav-logo img { height: 36px; width: auto; display: block; filter: brightness(0) invert(1); transition: filter 0.3s; }
+.nav-logo img { height: 42px; width: auto; display: block; filter: brightness(0) invert(1); transition: filter 0.3s; }
 nav.scrolled .nav-logo img { filter: none; }
 .nav-links { display: flex; gap: 28px; list-style: none; }
 .nav-links a {
@@ -720,11 +722,16 @@ nav.scrolled .hamburger span { background: var(--black); }
   border-color: rgba(255,92,26,0.3);
 }
 .ecosystem-card.rental:hover { background: rgba(255,92,26,0.2); border-color: rgba(255,92,26,0.5); }
-.ecosystem-card.commercial {
-  background: rgba(255,158,0,0.08);
-  border-color: rgba(255,158,0,0.25);
+.ecosystem-card.precon {
+  background: rgba(245,182,12,0.1);
+  border-color: rgba(245,182,12,0.3);
 }
-.ecosystem-card.commercial:hover { background: rgba(255,158,0,0.15); border-color: rgba(255,158,0,0.45); }
+.ecosystem-card.precon:hover { background: rgba(245,182,12,0.18); border-color: rgba(245,182,12,0.5); }
+.ecosystem-card.commercial {
+  background: rgba(214,51,108,0.1);
+  border-color: rgba(214,51,108,0.3);
+}
+.ecosystem-card.commercial:hover { background: rgba(214,51,108,0.15); border-color: rgba(214,51,108,0.45); }
 .ecosystem-card.homekeep {
   background: rgba(113,169,188,0.08);
   border-color: rgba(113,169,188,0.25);
@@ -753,7 +760,8 @@ nav.scrolled .hamburger span { background: var(--black); }
 }
 .housing .eco-card-tag { color: #5a8fc4; }
 .rental .eco-card-tag { color: var(--orange); }
-.commercial .eco-card-tag { color: var(--amber); }
+.precon .eco-card-tag { color: var(--honey); }
+.commercial .eco-card-tag { color: var(--magenta); }
 .eco-card-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.6rem;
@@ -776,7 +784,8 @@ nav.scrolled .hamburger span { background: var(--black); }
 }
 .housing .eco-card-link { color: #5a8fc4; }
 .rental .eco-card-link { color: var(--orange); }
-.commercial .eco-card-link { color: var(--amber); }
+.precon .eco-card-link { color: var(--honey); }
+.commercial .eco-card-link { color: var(--magenta); }
 
 /* ───── CTA / CONTACT ───── */
 .cta-section {
@@ -864,8 +873,10 @@ footer {
 .footer-site-link.housing:hover { background: rgba(48,76,116,0.35); }
 .footer-site-link.rental { background: rgba(255,92,26,0.12); border: 1px solid rgba(255,92,26,0.3); }
 .footer-site-link.rental:hover { background: rgba(255,92,26,0.22); }
-.footer-site-link.commercial { background: rgba(255,158,0,0.1); border: 1px solid rgba(255,158,0,0.3); }
-.footer-site-link.commercial:hover { background: rgba(255,158,0,0.2); }
+.footer-site-link.precon { background: rgba(245,182,12,0.1); border: 1px solid rgba(245,182,12,0.3); }
+.footer-site-link.precon:hover { background: rgba(245,182,12,0.2); }
+.footer-site-link.commercial { background: rgba(214,51,108,0.1); border: 1px solid rgba(214,51,108,0.3); }
+.footer-site-link.commercial:hover { background: rgba(214,51,108,0.2); }
 .footer-site-link.homekeep { background: rgba(113,169,188,0.1); border: 1px solid rgba(113,169,188,0.3); cursor:default; }
 .footer-site-link.homekeep .footer-site-label { color: #71a9bc; }
 .footer-site-link.homekeep .footer-site-name { color: #71a9bc; }
@@ -874,13 +885,15 @@ footer {
 }
 .footer-site-link.housing .footer-site-label { color: #5a8fc4; }
 .footer-site-link.rental .footer-site-label { color: var(--orange); }
-.footer-site-link.commercial .footer-site-label { color: var(--amber); }
+.footer-site-link.precon .footer-site-label { color: var(--honey); }
+.footer-site-link.commercial .footer-site-label { color: var(--magenta); }
 .footer-site-name {
   font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1.5px; color: var(--white);
 }
 .footer-site-link.housing .footer-site-name { color: var(--blue); }
 .footer-site-link.rental .footer-site-name { color: var(--orange); }
-.footer-site-link.commercial .footer-site-name { color: var(--amber); }
+.footer-site-link.precon .footer-site-name { color: var(--honey); }
+.footer-site-link.commercial .footer-site-name { color: var(--magenta); }
 
 .footer-socials-row {
   display: flex;
@@ -968,7 +981,7 @@ footer {
 <!-- NAV -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">
-    <img src="RAZZREG.svg" alt="RAZZ Real Estate Group">
+    <img src="RAZZREG-boxed.svg" alt="RAZZ Real Estate Group">
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -1097,15 +1110,15 @@ footer {
   <div class="razz-report-inner fade-up">
     <div class="razz-report-left">
       <div class="section-label" style="color:var(--blue);">The RAZZ Report</div>
-      <h2 class="razz-report-heading">Greater Toronto Area Real Estate &mdash;<br><span style="color:var(--blue);">Without the Noise.</span></h2>
-      <p class="razz-report-sub">Stats, skits, and a little satire &mdash; real estate, minus the fluff.</p>
+      <h2 class="razz-report-heading">Greater Toronto Area Real Estate<br><span style="color:var(--blue);">Without the Noise.</span></h2>
+      <p class="razz-report-sub">Stats, skits, and a little satire. Real estate, minus the fluff.</p>
       <div class="razz-pillars">
         <span class="razz-pillar"><strong>[R]</strong>esearch</span>
-        <span class="razz-pillar"><strong>[A]</strong>nalysis</span>
-        <span class="razz-pillar"><strong>[Z]</strong>oom-In</span>
+        <span class="razz-pillar"><strong>[A]</strong>lign</span>
+        <span class="razz-pillar"><strong>[Z]</strong>ero-In</span>
         <span class="razz-pillar"><strong>[Z]</strong>oom-Out</span>
       </div>
-      <p class="razz-report-close">Understand the market as it is &mdash; not as it's sold.<br><strong>Less noise. More signal.</strong><br><strong>One email, every other week.</strong></p>
+      <p class="razz-report-close">Understand the market as it is, not as it's sold.<br><strong>Less noise. More signal.</strong><br><strong>One email, every other week.</strong></p>
     </div>
     <div class="razz-report-right">
       <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
@@ -1141,6 +1154,11 @@ footer {
         <div class="eco-card-title">TheRentalMarket.ca</div>
         <div class="eco-card-body">Helping renters navigate the GTA rental market with clarity and confidence.</div>
         <div class="eco-card-link">Visit TheRentalMarket.ca &#8594;</div>
+      </a>
+      <a href="https://thepreconmarket.ca" target="_blank" rel="noopener" class="ecosystem-card precon">
+        <div class="eco-card-title">ThePreconMarket.ca</div>
+        <div class="eco-card-body">Pre-construction detached homes, townhomes and semis across Ontario, with launches, deposits and HST rebates explained.</div>
+        <div class="eco-card-link">Visit ThePreconMarket.ca &#8594;</div>
       </a>
       <div class="ecosystem-card commercial coming-soon">
         <div class="eco-card-badge">Coming Soon</div>
@@ -1242,8 +1260,12 @@ footer {
           <div class="footer-site-name">TheHousingMarket.ca</div>
         </a>
         <a href="https://therentalmarket.ca" class="footer-site-link rental" target="_blank" rel="noopener">
-          <div class="footer-site-label">For Tenants</div>
+          <div class="footer-site-label">For Tenants &amp; Landlords</div>
           <div class="footer-site-name">TheRentalMarket.ca</div>
+        </a>
+        <a href="https://thepreconmarket.ca" class="footer-site-link precon" target="_blank" rel="noopener">
+          <div class="footer-site-label">For New Home Buyers</div>
+          <div class="footer-site-name">ThePreconMarket.ca</div>
         </a>
         <a href="https://thecommercialmarket.ca" class="footer-site-link commercial" target="_blank" rel="noopener">
           <div class="footer-site-label">For Businesses &amp; Investors</div>
